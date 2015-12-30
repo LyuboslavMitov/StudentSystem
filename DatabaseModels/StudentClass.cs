@@ -6,6 +6,7 @@ namespace StudentSystem.DatabaseModels
     [Table("StudentClasses")]
    public class StudentClass
     {
+        //Primerno
        
        public StudentClass()
        {
