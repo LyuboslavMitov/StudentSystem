@@ -74,6 +74,7 @@ namespace StudentSystem.Data.UnitOfWork
             this.dbContext.SaveChanges();
         }
 
+
         private IRepository<T> GetRepository<T>() where T : class
         {
             if (!this.repositories.ContainsKey(typeof(T)))
