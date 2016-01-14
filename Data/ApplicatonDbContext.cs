@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace StudentSystem.Data
 {
@@ -20,6 +21,10 @@ namespace StudentSystem.Data
         {
             return new ApplicationDbContext();
         }
+        public IDbSet<Mark> Marks { get; set; }
+        public IDbSet<Student> Students { get; set; }
+        public IDbSet<StudentClass> StudentClasses { get; set; }
+        public IDbSet<Subject> Subjects { get; set; }
     }
 }
 
