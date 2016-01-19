@@ -14,7 +14,7 @@ namespace StudentSystem.DatabaseModels
         First=0,
         Second=1
     }
-    
+        
     [Table ("Marks")]
         public class Mark
     {
@@ -30,9 +30,9 @@ namespace StudentSystem.DatabaseModels
         public int SubjectID { get; set; }
         public virtual Subject Subject { get; set; }
 
-        [MinLength(2)]
+        
         [Required]
-        [MaxLength(6)]
+        [Range(2,6)]
         public int Grade { get; set; }
 
         [Key]
