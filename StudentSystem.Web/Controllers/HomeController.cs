@@ -31,7 +31,8 @@ namespace StudentSystem.Web.Controllers
             ViewBag.Message = "Бележникът.";
             return View();
         }
-        
+
+
 
     }
 }
