@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -25,29 +25,13 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="glyphicon glyphicon-th-list"></i></a></li>
-                    <li><button type="button" class="btn btn-warning" >Помощ</button></li>
+                    <li><a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="glyphicon glyphicon-th-list"></i></a></li>                 
                 </ul>
+            <ul class="nav navbar-right"><li><button type="button" class="btn btn-warning btn-default">Помощ</button></li></ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    
    
-
-    @*<div class="navbar-collapse @*@*@*@collapse">
-        <ul class="nav navbar-nav">*@
-
-    @*<li>@Html.ActionLink("Начало", "Index", "Home")</li>
-        <li>@Html.ActionLink("Бележник", "Notebook", "Home")</li>
-        <li>@Html.ActionLink("Календар", "Calendar", "Home")</li>
-        <li>@Html.ActionLink("Профил", "Profile", "Home")</li>*@
-
-    @*</ul>*@
-
-    @*</div>*@
-    @*</div>
-        </div>*@
-
     <div class="container body-content">
         @RenderBody()
         <hr />
