@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StudentSystem.Data.UnitOfWork
 {
-   public class StudentSystemData                                 //Nasledi IstudentSystemData ii definirai repositoryta
+   public class StudentSystemData  : IStudentSystemData            //Nasledi IstudentSystemData ii definirai repositoryta
     {
         private readonly DbContext dbContext;
 

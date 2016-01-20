@@ -10,7 +10,7 @@ using System.Data.Entity;
 namespace StudentSystem.Data
 {
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser> , IApplicationDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -25,6 +25,16 @@ namespace StudentSystem.Data
         public IDbSet<Student> Students { get; set; }
         public IDbSet<StudentClass> StudentClasses { get; set; }
         public IDbSet<Subject> Subjects { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public new int SaveChanges()
+        {
+            return base.SaveChanges();
+        }
     }
 }
 
