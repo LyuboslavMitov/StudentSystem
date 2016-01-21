@@ -27,7 +27,8 @@
 </head>
 
 <body>
-
+@if (User.Identity.IsAuthenticated)
+{
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -78,6 +79,7 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+}
 
 
 </body>

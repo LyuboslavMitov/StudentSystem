@@ -176,6 +176,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Partial_Components\LoginForm\Blurred_Background_17.jpg" />
+    <Content Include="Partial_Components\LoginForm\login-form.css" />
+    <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.css" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.min.css" />
     <Content Include="Partial_Components\sidebar\css\simple-sidebar.css" />
@@ -199,6 +202,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\LoginForm.cshtml" />
     <None Include="Views\Shared\sidebar.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

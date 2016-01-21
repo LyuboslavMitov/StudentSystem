@@ -31,6 +31,11 @@ namespace StudentSystem.Web.Controllers
             ViewBag.Message = "Бележникът.";
             return View();
         }
+        public ActionResult LoginForm()
+        {
+            return View();
+        }
+
 
 
 
