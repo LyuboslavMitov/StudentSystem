@@ -35,6 +35,11 @@ namespace StudentSystem.Web.Controllers
         {
             return View();
         }
+        public ActionResult RegisterForm()
+        {
+            return View();
+        }
+
 
 
 
