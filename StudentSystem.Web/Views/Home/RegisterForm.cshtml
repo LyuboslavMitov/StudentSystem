@@ -33,7 +33,8 @@
             <div class="col-md-4 col-md-offset-4">@*Panel placement horizontally*@
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="row-fluid user-row">
+                        <div class="row-fluid user-row text-center">
+                            Създаване на профил
                         </div>
                     </div>
                     <div class="panel-body">
@@ -45,23 +46,24 @@
                                 <div>
                                     <div>
                                         @Html.ValidationSummary("", new { @class = "text-danger" })
-                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                        @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
                                     </div>
                                 </div>
 
                                 <div>
                                     <div>
                                         <label for="Password" class="text-centered"></label> @*Same as LabelFor*@
-                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label text-centered" })
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label text-centered" })*@
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Парола" })
                                     </div>
                                 </div>
 
                                 <div>
                                     <div>
-                                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label text-centered" })
-                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                        <br />
+                                        @*@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label text-centered" })*@
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Потвърди парола." })
                                     </div>
                                 </div>
                                 <br>
