@@ -18,7 +18,7 @@ namespace StudentSystem.DatabaseModels
         }
         private ICollection<Mark> marks;
 
-        public ICollection<Mark> Marks
+        public virtual ICollection<Mark> Marks
         {
             get { return marks; }
             set { marks = value; }

@@ -13,18 +13,21 @@ namespace StudentSystem.Data.UnitOfWork
 {
    public class StudentSystemData  : IStudentSystemData            //Nasledi IstudentSystemData ii definirai repositoryta
     {
-        private readonly DbContext dbContext;
+       private readonly IApplicationDbContext dbContext;
 
         private readonly IDictionary<Type, object> repositories;
 
         private IUserStore<ApplicationUser> userStore;
 
-        public StudentSystemData(DbContext context)
+        public StudentSystemData(IApplicationDbContext context)
         {
             this.dbContext = context;
             this.repositories = new Dictionary<Type, object>();
         }
+        public StudentSystemData():this(new ApplicationDbContext())
+        {
 
+        }
       
        // Definirane na  repository-ta
         public IRepository<ApplicationUser> Users
@@ -56,18 +59,18 @@ namespace StudentSystem.Data.UnitOfWork
 
        //User Store
 
-        public IUserStore<ApplicationUser> UserStore
-        {
-            get
-            {
-                if (this.userStore == null)
-                {
-                    this.userStore = new UserStore<ApplicationUser>(this.dbContext);
-                }
+        //public IUserStore<ApplicationUser> UserStore
+        //{
+        //    get
+        //    {
+        //        if (this.userStore == null)
+        //        {
+        //            this.userStore = new UserStore<ApplicationUser>(this.dbContext);
+        //        }
 
-                return this.userStore;
-            }
-        }
+        //        return this.userStore;
+        //    }
+        //}
 
         public void SaveChanges()
         {
