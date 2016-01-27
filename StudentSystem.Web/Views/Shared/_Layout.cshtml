@@ -13,8 +13,8 @@
 
 </head>
 <body>
-    @if (User.Identity.IsAuthenticated)
-    {
+    @*@if (User.Identity.IsAuthenticated)
+    {*@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -33,7 +33,7 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    }
+  
     <div class="container body-content">
         @RenderBody()
     </div>

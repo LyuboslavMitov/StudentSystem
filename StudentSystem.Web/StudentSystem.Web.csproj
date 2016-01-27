@@ -205,7 +205,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Shared\LoginForm.cshtml" />
-    <Content Include="Views\Home\RegisterForm.cshtml" />
+    <Content Include="Views\Shared\RegisterForm.cshtml" />
     <None Include="Views\Shared\sidebar.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
