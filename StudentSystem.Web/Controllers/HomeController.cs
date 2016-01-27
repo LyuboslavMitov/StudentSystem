@@ -6,10 +6,11 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
+            var name = this.data.Students.All().FirstOrDefault().FirstName;           
             return View();
         }
 

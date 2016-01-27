@@ -1,11 +1,13 @@
 ﻿using StudentSystem.DatabaseModels;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using StudentSystem.Data.Migrations;
 
 namespace StudentSystem.Data
 {
@@ -13,8 +15,9 @@ namespace StudentSystem.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> , IApplicationDbContext
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("StudentSystem", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public static ApplicationDbContext Create()
@@ -35,6 +38,38 @@ namespace StudentSystem.Data
         {
             return base.SaveChanges();
         }
+
+       //  protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
+       // {
+       //     modelBuilder.Entity<Mark>().HasKey(i => new { i.TeacherID,i.StudentID , i.SubjectID, i.StudentClassID });
+
+
+       //     modelBuilder.Entity<Mark>()
+       // .HasRequired(i => i.Teacher)                        //Teacher
+       // .WithMany()
+       // .HasForeignKey(i => i.TeacherID);
+
+
+       //     modelBuilder.Entity<Mark>()
+       //.HasRequired(i => i.Subject)
+       //.WithMany()                                          // Subject
+       //.HasForeignKey(i => i.SubjectID);
+
+
+       //     modelBuilder.Entity<Mark>()
+       //.HasRequired(i => i.Student)
+       //.WithMany()                                          //Student
+       //.HasForeignKey(i => i.StudentID);
+
+
+       //     modelBuilder.Entity<Mark>()
+       //.HasRequired(i => i.StudentClass)
+       //.WithMany()                                          //CLASS
+       //.HasForeignKey(i => i.StudentClassID);
+
+        
+
+        }
     }
-}
+
 

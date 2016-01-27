@@ -14,7 +14,7 @@ namespace StudentSystem.DatabaseModels
            this.Marks = new List<Mark>();
        }
         [Key]
-       public int ClassID { get; set; }
+       public int StudentClassID { get; set; }
         [Required]
        public string ClassName { get; set; }
        private ICollection<Student> students;
@@ -23,7 +23,7 @@ namespace StudentSystem.DatabaseModels
         //Relation with Marks
        private ICollection<Mark> marks;
 
-       public ICollection<Mark> Marks
+       public virtual ICollection<Mark> Marks
        {
            get { return marks; }
            set { marks = value; }

@@ -25,12 +25,13 @@
             this.Marks = new List<Mark>();
         }
         //Relations
-        [Key, ForeignKey("StudentClass")]
-        public int StudentClassID { get; set; }
+        ////[Key]
+        //[ ForeignKey("StudentClass")]
+        //public int StudentClassID { get; set; }
         public virtual StudentClass StudentClass { get; set; }
         private ICollection<Mark> marks;
 
-        public ICollection<Mark> Marks
+        public virtual ICollection<Mark> Marks
         {
             get { return marks; }
             set { marks = value; }
