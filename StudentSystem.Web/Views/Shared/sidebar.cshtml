@@ -23,14 +23,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
     @*@if (User.Identity.IsAuthenticated)
         {*@
     <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -49,12 +46,11 @@
                 <li>
                     <a href="Profile">Профил</a>
                 </li>
+                <li>
+                    <a href="Logout">Logout</a>
+                </li>
             </ul>
-            <ul class="nav navbar-right">
-                <li><button type="button" class="btn btn-warning btn-default" id="logout">Logout</button></li>
-            </ul>
-</div>
-
+        </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -75,7 +71,5 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-
 </body>
-
 </html>

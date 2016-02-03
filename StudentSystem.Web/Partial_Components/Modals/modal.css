@@ -1,0 +1,9 @@
+﻿@import url('http://twitter.github.com/bootstrap/assets/css/bootstrap.css');
+
+.modal { overflow: visible; }
+.modal-body { overflow-y: visible; }
+
+.main {
+    min-height: 100%;
+    padding: 2em;
+}

@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Partial_Components/Modals/modal.css" rel="stylesheet">
+        <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bs-example">
+        <!-- Button HTML (to Trigger Modal) -->
+        <a href="#myModal" class="btn btn-primary" data-toggle="modal">Избери клас</a>
+
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    @*<div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Бацаш ли ве</h4>
+                        </div>*@
+                    <br />
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label class="font-noraml">
+                                Срок:
+                            </label>
+                            <div class="input-group">
+                                <select data-placeholder="Срок" class="form-control chosen-select" style="width:100px;" tabindex="2">
+                                    <option value="Isrok">
+                                        I срок
+                                    </option>
+                                    <option value="IIsrok">
+                                        II срок
+                                    </option>
+                                </select>
+                            </div>
+                            <label class="font-noraml">
+                                Клас:
+                            </label>
+                            <div class="input-group">
+                                <select data-placeholder="Клас" class="form-control chosen-select" style="width:100px;" tabindex="2">
+                                    <option value="">8а</option>
+                                    <option value="">9б</option>
+                                    <option value="">10в</option>
+                                    <option value="">11а</option>
+                                    <option value="">11в</option>
+                                    <option value="">12а</option>
+                                </select>
+                            </div>
+                            <label class="font-noraml">
+                                Предмет:
+                            </label>
+                            <div class="input-group">
+                                <select data-placeholder="Предмет" class="form-control chosen-select" style="width:150px;" tabindex="2">
+                                    <option value="">Математика</option>
+                                    <option value="">Информатика</option>
+                                    <option value="">География</option>
+                                    <option value="">История</option>
+                                    <option value="">Свят и личност</option>
+                                    <option value="">Психология</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-default">Въведи</button>
+
+
+                    @*<div class="btn-group" role="group">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Dropdown link</a></li>
+                                <li><a href="#">Dropdown link</a></li>
+                            </ul>
+                        </div>*@
+
+                    @*<div class="modal-body">
+                            <p>Ко стаа е?</p>
+                        </div>*@
+
+
+
+
+
+
+
+
+                    @*<div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Сигара пуса.</button>
+                            <button type="button" class="btn btn-primary">Сигарка си правя.</button>
+                        </div>*@
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

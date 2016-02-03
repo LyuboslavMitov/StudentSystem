@@ -182,6 +182,10 @@
     <Content Include="Partial_Components\LoginForm\login-form.css" />
     <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\LoginForm\RegisterButton.js" />
+    <None Include="Views\Shared\ChooseModal.cshtml" />
+    <None Include="Partial_Components\Modals\InsertModal.cshtml" />
+    <Content Include="Partial_Components\Modals\modal.css" />
+    <Content Include="Partial_Components\Modals\modals.js" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.css" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.min.css" />
     <Content Include="Partial_Components\sidebar\css\simple-sidebar.css" />
