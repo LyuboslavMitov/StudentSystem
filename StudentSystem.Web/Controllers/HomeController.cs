@@ -10,8 +10,8 @@ namespace StudentSystem.Web.Controllers
     {
         public ActionResult Index()
         {
-            var name = this.data.Students.All().FirstOrDefault().FirstName;           
-            return View();
+            var test = this.data.Students.All().ToList();           
+            return View(test);
         }
 
         public ActionResult Calendar()
