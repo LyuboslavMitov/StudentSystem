@@ -167,14 +167,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StudentClassViewModel.cs" />
+    <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -188,7 +192,6 @@
     <Content Include="Partial_Components\LoginForm\login-form.css" />
     <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\LoginForm\RegisterButton.js" />
-    <Content Include="Grid.mvc.readme" />
     <None Include="Views\Shared\ChooseModal.cshtml" />
     <None Include="Partial_Components\Modals\InsertModal.cshtml" />
     <Content Include="Partial_Components\LoginModal.css" />
@@ -262,9 +265,13 @@
     <Content Include="Views\Home\Notebook.cshtml" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Students\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Client\" />
   </ItemGroup>

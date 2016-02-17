@@ -5,6 +5,8 @@ namespace StudentSystem.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public sealed class Configuration : DbMigrationsConfiguration<StudentSystem.Data.ApplicationDbContext>
     {
@@ -33,12 +35,39 @@ namespace StudentSystem.Data.Migrations
                     FirstName = "Andrew",
                     SecondName = "J.",
                     LastName = " Peters",
-                    EGN = "1234567890",
                     Number = 1234567,
                     StudentClass = cls
                 };
+                var stud1 = new Student
+                {
+                    FirstName = "Lyuboslav",
+                    SecondName = "J.",
+                    LastName = " Mitov",
+                    Number = 123456,
+                    StudentClass = cls
+                };
+                var stud2 = new Student
+                {
+                    FirstName = "Stoil",
+                    SecondName = "J.",
+                    LastName = " Yankov",
+                    Number = 12345,
+                    StudentClass = cls
+                };
                 context.Students.Add(stud);
+                context.Students.Add(stud1);
+                context.Students.Add(stud2);
                 context.SaveChanges();
+                if (!context.Users.Any(u => u.UserName == "deevvil_pz@abv.bg"))
+                {
+                    var user = new ApplicationUser
+                    {
+                        UserName = "deevvil_pz@abv.bg",
+                        Email = "deevvil_pz@abv,bg",
+                        PhoneNumber = "0889862464",
+                        
+                    };
+                }
             }
         }
     }

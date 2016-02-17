@@ -25,8 +25,8 @@ namespace StudentSystem.DatabaseModels
 
        public virtual ICollection<Mark> Marks
        {
-           get { return marks; }
-           set { marks = value; }
+           get { return this.marks; }
+           set { this.marks = value; }
        }
     }
 }

@@ -16,10 +16,6 @@
         public string LastName { get; set; }
         [Required]
         public int Number { get; set; }
-        [Required]
-        [MaxLength(10)]
-        [MinLength(10)]
-        public string EGN { get; set; }
         public Student()
         {
             this.Marks = new List<Mark>();

@@ -11,7 +11,7 @@ namespace StudentSystem.Web.Controllers
     {
         public ActionResult Index()
         {
-            // var name = this.data.Students.All().FirstOrDefault().FirstName;           
+            //var name = this.data.Students.All().FirstOrDefault().FirstName;           
             return View();
         }
 
