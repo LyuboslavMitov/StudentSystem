@@ -1,5 +1,5 @@
-﻿
-@using StudentSystem.Web.Models
+﻿@using StudentSystem.Web.Models
+@Html.Partial("LoginModal");
 @model LoginViewModel
 @{
     ViewBag.Title = "Вход";
@@ -15,9 +15,9 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/Partial_Components/LoginForm/login-form.css" rel="stylesheet">
     <script src="~/Partial_Components/LoginForm/RegisterButton.js"></script>
-
+    <link href="~/Views/Shared/LoginModal.cshtml" rel="stylesheet" />
+    <link href="~/Partial_Components/LoginForm/login-form.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,38 +38,50 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form" class="form-signin">
-                            <fieldset>
-                                <label class="panel-login">
-                                    <div class="login_result"></div>
-                                </label>
-                                <div class="form-group">
-                                    @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
-                                    <div>
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
+                        <section id="loginForm">
+                            @Html.AntiForgeryToken()
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <form accept-charset="UTF-8" role="form" class="form-signin">
+                                    <fieldset>
+                                        @*<label class="panel-login">
+                            <div class="login_result"></div>
+                        </label>*@
+                                        <div class="form-group">
+                                            @*@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })*@
+                                            <div>
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "width:320px", @align = "middle", @placeholder = "Email" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
 
-                                <div class="form-group">
-                                    @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
-                                    <div>
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Парола" })
-                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <br>
-                                <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Вход">
-                                @*<input class="btn btn-sm btn-primary btn-block" type="submit" id="code" value="Регистрация" >*@
-                                @*<button id="code" class="btn btn-sm btn-primary btn-block" type="submit" value="Регистрация"></button>*@
-                                <br />
-                                <div id="register">
-                                    @*бутон за регистрация*@
-                                    <a class="btn btn-lg btn-info btn-block" href="Account/Register">Регистрация</a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
+                                        <div class="form-group">
+                                            @*@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })*@
+                                            <div>
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Парола" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <input type="submit" value="Log in" class="btn btn-lg btn-info btn-block" />
+                                        @*<input class="btn btn-sm btn-primary btn-block" type="submit" id="code" value="Регистрация" >*@
+                                        @*<button id="code" class="btn btn-sm btn-primary btn-block" type="submit" value="Регистрация"></button>*@
+                                        <br />
+                                        <div id="register">
+                                            @*бутон за регистрация*@
+                                            <a class="btn btn-lg btn-info btn-block" href="Register">Регистрация</a>
+                                        </div>
+                                        @*<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>*@
+                                        <div>
+                                            @*бутон за регистрация*@
+                                            <a class="btn btn-lg btn-info btn-block" data-toggle="modal" data-target="#login-modal" hreff="Register">Log In</a>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            }
+
+                        </section>
+</div>
                 </div>
             </div>
         </div>

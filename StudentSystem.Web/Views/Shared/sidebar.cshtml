@@ -25,8 +25,8 @@
     <![endif]-->
 </head>
 <body>
-    @*@if (User.Identity.IsAuthenticated)
-        {*@
+    @if (User.Identity.IsAuthenticated)
+    {
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -46,9 +46,14 @@
                 <li>
                     <a href="Profile">Профил</a>
                 </li>
-                <li>
-                    <a href="Logout">Logout</a>
-                </li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken();
+                    if (Request.IsAuthenticated)
+                    {
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    }
+                }
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -71,5 +76,6 @@
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+    }
 </body>
 </html>
