@@ -28,7 +28,11 @@ namespace StudentSystem.Data.Migrations
                 //context.Students.Add(new Student());
                 //context.SaveChanges();
                 var cls = new StudentClass { ClassName = "11A" };
+                var cls2 = new StudentClass { ClassName = "10A" };
+                var cls1 = new StudentClass { ClassName = "12A" };
                 context.StudentClasses.Add(cls);
+                context.StudentClasses.Add(cls1);
+                context.StudentClasses.Add(cls2);
 
                 var stud = new Student
                 {
@@ -54,10 +58,20 @@ namespace StudentSystem.Data.Migrations
                     Number = 12345,
                     StudentClass = cls
                 };
+                var stud3 = new Student
+                {
+                    FirstName = "Stoil",
+                    SecondName = "J.",
+                    LastName = " Takoata",
+                    Number = 12345,
+                    StudentClass = cls
+                };
                 context.Students.Add(stud);
                 context.Students.Add(stud1);
                 context.Students.Add(stud2);
+                context.Students.Add(stud3);
                 context.SaveChanges();
+                
                 if (!context.Users.Any(u => u.UserName == "deevvil_pz@abv.bg"))
                 {
                     var user = new ApplicationUser
@@ -68,6 +82,7 @@ namespace StudentSystem.Data.Migrations
                         
                     };
                 }
+                
             }
         }
     }
