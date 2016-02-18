@@ -10,12 +10,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+   
+
 
 
 </head>
 <body>
-    @*@if (User.Identity.IsAuthenticated)
-        {*@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -30,27 +30,36 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#menu-toggle" class="btn btn-default btn-sm pull-right" id="menu-toggle"><i class="glyphicon glyphicon-th-list"></i></a></li>
-                   
+
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <li><a href="#myModal" class="btn btn-primary pull-right" data-toggle="modal">Избери клас</a></li>
+                </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            FOR FUCKS SAKE
+                            @*@Html.ActionLink("Hello " , "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                     </ul>
+                }
 
-                    @*<ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Въведи клас</a></li>
-                <li role="presentation" class="active"><a href="#">Избери клас</a></li>
-            </ul>*@
-</div><!--/.nav-collapse -->
-        </div>
-
-    </nav>
-
-    <div class="container body-content">
-        @RenderBody()
+            @*<ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Въведи клас</a></li>
+                    <li role="presentation" class="active"><a href="#">Избери клас</a></li>
+                </ul>*@
+        </div><!--/.nav-collapse -->
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+</nav>
+<div class="container body-content">
+    @RenderBody()
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
 </html>

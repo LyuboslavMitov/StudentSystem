@@ -48,6 +48,10 @@
       <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -126,9 +130,6 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
@@ -192,9 +193,9 @@
     <Content Include="Partial_Components\LoginForm\login-form.css" />
     <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\LoginForm\RegisterButton.js" />
-    <None Include="Views\Shared\ChooseModal.cshtml" />
-    <None Include="Partial_Components\Modals\InsertModal.cshtml" />
-    <Content Include="Partial_Components\LoginModal.css" />
+    <None Include="Views\Shared\ModalChoose.cshtml" />
+    <None Include="Views\Shared\ModalAdd.cshtml" />
+    <Content Include="Partial_Components\Modals\LoginModal.css" />
     <Content Include="Partial_Components\Modals\modal.css" />
     <Content Include="Partial_Components\Modals\modals.js" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.css" />
@@ -204,6 +205,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Partial_Components\TestPage\css\magister.css" />
+    <Content Include="Partial_Components\TestPage\images\body1.jpg" />
+    <Content Include="Partial_Components\TestPage\images\body2.jpg" />
+    <Content Include="Partial_Components\TestPage\images\body3.jpg" />
+    <Content Include="Partial_Components\TestPage\images\body4.jpg" />
+    <Content Include="Partial_Components\TestPage\images\body5.JPG" />
+    <Content Include="Partial_Components\TestPage\images\gt_favicon.png" />
+    <Content Include="Partial_Components\TestPage\js\magister.js" />
+    <Content Include="Partial_Components\TestPage\js\modernizr.custom.72241.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\gridmvc.js" />
@@ -223,9 +233,8 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Shared\LoginForm.cshtml" />
-    <Content Include="Views\Shared\RegisterForm.cshtml" />
-    <Content Include="Views\Shared\LoginModal.cshtml" />
+    <Content Include="Views\Shared\ModalLogin.cshtml" />
+    <Content Include="Views\Shared\ModalRegister.cshtml" />
     <None Include="Views\Shared\sidebar.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -265,8 +274,6 @@
     <Content Include="Views\Home\Notebook.cshtml" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Shared\_Grid.cshtml" />
-    <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Students\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
