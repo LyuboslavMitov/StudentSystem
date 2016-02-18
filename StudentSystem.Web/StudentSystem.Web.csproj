@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44300</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -188,8 +190,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gridmvc.css" />
-    <Content Include="Partial_Components\LoginForm\aaaa.JPG" />
-    <Content Include="Partial_Components\LoginForm\Blurred_Background_17.jpg" />
+    <Content Include="Partial_Components\LoginForm\145572020435992.png" />
     <Content Include="Partial_Components\LoginForm\login-form.css" />
     <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\LoginForm\RegisterButton.js" />
@@ -197,6 +198,7 @@
     <Content Include="Views\Admin\Create.cshtml" />
     <None Include="Views\Shared\ChooseModal.cshtml" />
     <None Include="Partial_Components\Modals\InsertModal.cshtml" />
+    <Content Include="Partial_Components\LoginModal.css" />
     <Content Include="Partial_Components\Modals\modal.css" />
     <Content Include="Partial_Components\Modals\modals.js" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.css" />
@@ -227,8 +229,11 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Shared\LoginForm.cshtml" />
     <Content Include="Views\Shared\RegisterForm.cshtml" />
+    <Content Include="Views\Shared\LoginModal.cshtml" />
     <None Include="Views\Shared\sidebar.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -289,6 +294,9 @@
       <Name>StudentSystem.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -307,7 +315,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55737</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55737/</IISUrl>
+          <IISUrl>https://localhost:44300/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
