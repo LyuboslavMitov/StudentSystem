@@ -1,0 +1,9 @@
+﻿@model StudentSystem.Web.Models.AdminStudentViewModel
+@{
+    ViewBag.Title = "TrugniMolqTe";
+}
+<h2>
+    Bind DrowpDownList
+</h2>
+@Html.DropDownList("ddlcountry", Model.StudentClassesList, new { @style = "width:200px;" })
+

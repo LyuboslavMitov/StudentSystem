@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using StudentSystem.Data.Migrations;
 
+
 namespace StudentSystem.Data
 {
 
@@ -38,6 +39,11 @@ namespace StudentSystem.Data
         {
             return base.SaveChanges();
         }
+
+       
+
+       // public System.Data.Entity.DbSet<StudentSystem.Web.Models.AdminStudentViewModel> AdminStudentViewModels { get; set; }
+
 
        //  protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
        // {
