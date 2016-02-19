@@ -1,0 +1,112 @@
+﻿@model StudentSystem.Web.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>StudentViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mark6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mark6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentClass)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

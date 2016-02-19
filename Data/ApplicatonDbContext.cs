@@ -40,41 +40,7 @@ namespace StudentSystem.Data
             return base.SaveChanges();
         }
 
-       
-
-       // public System.Data.Entity.DbSet<StudentSystem.Web.Models.AdminStudentViewModel> AdminStudentViewModels { get; set; }
-
-
-       //  protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
-       // {
-       //     modelBuilder.Entity<Mark>().HasKey(i => new { i.TeacherID,i.StudentID , i.SubjectID, i.StudentClassID });
-
-
-       //     modelBuilder.Entity<Mark>()
-       // .HasRequired(i => i.Teacher)                        //Teacher
-       // .WithMany()
-       // .HasForeignKey(i => i.TeacherID);
-
-
-       //     modelBuilder.Entity<Mark>()
-       //.HasRequired(i => i.Subject)
-       //.WithMany()                                          // Subject
-       //.HasForeignKey(i => i.SubjectID);
-
-
-       //     modelBuilder.Entity<Mark>()
-       //.HasRequired(i => i.Student)
-       //.WithMany()                                          //Student
-       //.HasForeignKey(i => i.StudentID);
-
-
-       //     modelBuilder.Entity<Mark>()
-       //.HasRequired(i => i.StudentClass)
-       //.WithMany()                                          //CLASS
-       //.HasForeignKey(i => i.StudentClassID);
-
-        
-
+      
         }
     }
 
