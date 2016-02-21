@@ -17,7 +17,6 @@ namespace StudentSystem.Web.Models
         public string FirstName { get; set; }
 
         public string SecondName { get; set; }
-
         public string LastName { get; set; }
         public int Number { get; set; }
         public SelectList StudentClassesList { get; set; }          // FOR DROPDOWN LIST in the Admin Panel
