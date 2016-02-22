@@ -28,16 +28,12 @@ namespace StudentSystem.Web.Controllers
             //return View(studentclassmodel);
 
             // PODAVANE NA DANNI ZA DROPDOWNLISTOVE - VTORA VERSIQ
-            var studentClassList = this.data.StudentClasses.All().Select(StudentClassViewModel.FromStudentClassModel).ToList();
-            SelectList selectStudentClassList = new SelectList(studentClassList, "StudentClassID", "ClassName", 0);
-            var subjectList = this.data.Subjects.All().Select(SubjectViewModel.FromSubjectModel).ToList();
-            SelectList selectSubjectList = new SelectList(subjectList, "SubjectID", "SubjectName", 0);
-            ViewData["Data1"] = selectStudentClassList;
-            ViewData["Data2"] = selectSubjectList;
-            return View();
-        }
-        public ActionResult Create()
-        {
+            //var studentClassList = this.data.StudentClasses.All().Select(StudentClassViewModel.FromStudentClassModel).ToList();
+            //SelectList selectStudentClassList = new SelectList(studentClassList, "StudentClassID", "ClassName", 0);
+            //var subjectList = this.data.Subjects.All().Select(SubjectViewModel.FromSubjectModel).ToList();
+            //SelectList selectSubjectList = new SelectList(subjectList, "SubjectID", "SubjectName", 0);
+            //ViewData["Data1"] = selectStudentClassList;
+            //ViewData["Data2"] = selectSubjectList;
             return View();
         }
 

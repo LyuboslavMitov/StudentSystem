@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
-using System;
+
 namespace StudentSystem.Web.Models
 {
     public class SubjectViewModel

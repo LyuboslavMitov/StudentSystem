@@ -21,7 +21,25 @@ namespace StudentSystem.DatabaseModels
         public ApplicationUser()
         {
             this.Marks=new  HashSet<Mark>();
+            this.StudentClasses = new HashSet<StudentClass>();
+            this.Subjects = new HashSet<Subject>();
         }
+        private ICollection <StudentClass> studentClasses;
+
+        public virtual ICollection < StudentClass> StudentClasses
+        {
+            get { return studentClasses; }
+            set { studentClasses = value; }
+        }
+
+        private ICollection<Subject> subjects;
+
+        public virtual  ICollection<Subject> Subjects
+        {
+            get { return subjects; }
+            set { subjects = value; }
+        }
+        
 
         private ICollection<Mark> marks;
 

@@ -20,12 +20,12 @@ namespace StudentSystem.Web.Models
 
         public string LastName { get; set; }
         public int Number { get; set; }
-        public int Mark1 { get; set; }
-        public int Mark2 { get; set; }
-        public int Mark3 { get; set; }
-        public int Mark4 { get; set; }
-        public int Mark5 { get; set; }
-        public int Mark6 { get; set; }
+        //public int Mark1 { get; set; }
+        //public int Mark2 { get; set; }
+        //public int Mark3 { get; set; }
+        //public int Mark4 { get; set; }
+        //public int Mark5 { get; set; }
+        //public int Mark6 { get; set; }
         public string StudentClass { get; set; }
         public int StudentClassID { get; set; }
 

@@ -29,6 +29,7 @@ namespace StudentSystem.Data
         public IDbSet<Student> Students { get; set; }
         public IDbSet<StudentClass> StudentClasses { get; set; }
         public IDbSet<Subject> Subjects { get; set; }
+        
 
         public new IDbSet<T> Set<T>() where T : class
         {
@@ -39,6 +40,8 @@ namespace StudentSystem.Data
         {
             return base.SaveChanges();
         }
+
+       
 
       
         }

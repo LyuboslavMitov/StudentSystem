@@ -10,8 +10,9 @@ namespace StudentSystem.DatabaseModels
        
        public StudentClass()
        {
-           this.Students = new List<Student>();
-           this.Marks = new List<Mark>();
+           this.Students = new HashSet<Student>();
+           this.Marks = new HashSet<Mark>();
+           this.Teachers = new HashSet<ApplicationUser>();
        }
         [Key]
        public int StudentClassID { get; set; }
@@ -21,6 +22,14 @@ namespace StudentSystem.DatabaseModels
        public virtual ICollection<Student> Students { get { return this.students; } set { this.students = value; } }
 
         //Relation with Marks
+       private ICollection<ApplicationUser> teachers;
+
+       public virtual ICollection<ApplicationUser> Teachers
+       {
+           get { return teachers; }
+           set { teachers = value; }
+       }
+       
        private ICollection<Mark> marks;
 
        public virtual ICollection<Mark> Marks

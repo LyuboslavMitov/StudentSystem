@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Linq;
+using StudentSystem.DatabaseModels;
 namespace StudentSystem.Web.Controllers
 {
     public class BaseController : Controller
@@ -21,5 +22,15 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
             return studentClassesList;
         }
+        protected List<SelectListItem> TeacherClassesList(string id)
+    {
+            var teacherClassesList = this.data.StudentClasses.All().Select(x => new SelectListItem
+            {
+                Text = x.ClassName,
+                Value = x.StudentClassID.ToString()
+            }).ToList();
+        return teacherClassesList;
+    }
+        
     }
 }

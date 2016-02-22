@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 namespace StudentSystem.DatabaseModels
 {
     public enum SubjectType
@@ -40,10 +41,16 @@ namespace StudentSystem.DatabaseModels
         [Range(2,6)]
         public int Grade { get; set; }
 
+        public DateTime Created { get; set; }
+
        [Required]
        public virtual ApplicationUser Teacher { get; set; }
 
         public SubjectType SubjectType { get; set; }
         public Term Term { get; set; }
+        public Mark()
+        {
+            this.Created = DateTime.Now;
+        }
     }
 }
