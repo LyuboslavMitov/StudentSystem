@@ -39,6 +39,8 @@ namespace StudentSystem.Web.Controllers
             {
                 UserID = foundTeacher.Id,
                 userName = foundTeacher.UserName,
+                StudentClasses = this.TeacherClassesList(id),
+                Subjects = this.TeacherSubjectsList(id)
             };
             return View(foundTeacherVM);
         }
@@ -51,7 +53,7 @@ namespace StudentSystem.Web.Controllers
         //    {
         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         //    }
-            
+
         //    TeacherAssignerViewModel teacherAssignerViewModel = db.TeacherAssignerViewModels.Find(id);
         //    if (teacherAssignerViewModel == null)
         //    {

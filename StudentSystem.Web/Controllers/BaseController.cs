@@ -24,13 +24,21 @@ namespace StudentSystem.Web.Controllers
         }
         protected List<SelectListItem> TeacherClassesList(string id)
     {
-            var teacherClassesList = this.data.StudentClasses.All().Select(x => new SelectListItem
+        var teacherClassesList = this.data.StudentClasses.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
             {
                 Text = x.ClassName,
                 Value = x.StudentClassID.ToString()
             }).ToList();
         return teacherClassesList;
     }
-        
+        protected List<SelectListItem> TeacherSubjectsList(string id)
+        {
+            var teacherSubjectsList = this.data.Subjects.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
+            {
+                Text = x.SubjectName,
+                Value = x.SubjectID.ToString()
+            }).ToList();
+            return teacherSubjectsList;
+        }
     }
 }

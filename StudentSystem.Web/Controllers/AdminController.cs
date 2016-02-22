@@ -13,19 +13,19 @@ namespace StudentSystem.Web.Controllers
 
         public ActionResult Index()
         {
-            AdminStudentViewModel adminStudentViewModel = new AdminStudentViewModel();
+            //AdminStudentViewModel adminStudentViewModel = new AdminStudentViewModel();
             // PODAVANE NA DANNI ZA DROPDOWNLISTOVE - Purva Versiq
             /*Getting data from database*/
-            //List<StudentClass> studentclasslist = (from data in this.data.StudentClasses.All() select data).ToList();
-            //StudentClass studentclass = new StudentClass();
-            //studentclass.ClassName = "Select";
-            //studentclass.StudentClassID = 0;
-            //studentclasslist.Insert(0, studentclass);
-            //SelectList objmodeldata = new SelectList(studentclasslist, "StudentClassID", "ClassName", 0);
-            ///*Assign value to model*/
-            //AdminStudentViewModel studentclassmodel = new AdminStudentViewModel();
-            //studentclassmodel.StudentClassesList = objmodeldata;
-            //return View(studentclassmodel);
+            List<StudentClass> studentclasslist = (from data in this.data.StudentClasses.All() select data).ToList();
+            StudentClass studentclass = new StudentClass();
+            studentclass.ClassName = "Select";
+            studentclass.StudentClassID = 0;
+            studentclasslist.Insert(0, studentclass);
+            SelectList objmodeldata = new SelectList(studentclasslist, "StudentClassID", "ClassName", 0);
+            /*Assign value to model*/
+            AdminStudentViewModel studentclassmodel = new AdminStudentViewModel();
+            studentclassmodel.StudentClassesList = objmodeldata;
+            return View(studentclassmodel);
 
             // PODAVANE NA DANNI ZA DROPDOWNLISTOVE - VTORA VERSIQ
             //var studentClassList = this.data.StudentClasses.All().Select(StudentClassViewModel.FromStudentClassModel).ToList();
@@ -34,7 +34,7 @@ namespace StudentSystem.Web.Controllers
             //SelectList selectSubjectList = new SelectList(subjectList, "SubjectID", "SubjectName", 0);
             //ViewData["Data1"] = selectStudentClassList;
             //ViewData["Data2"] = selectSubjectList;
-            return View();
+            
         }
 
     }

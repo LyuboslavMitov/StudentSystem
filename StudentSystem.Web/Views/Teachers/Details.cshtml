@@ -17,7 +17,12 @@
         <dd>
             @Html.DisplayFor(model => model.userName)
         </dd>
-
+        <dt>@Html.DisplayNameFor(model => model.StudentClasses)</dt>
+        @foreach (var stclass in Model.StudentClasses)
+        {
+            <dd>  @Html.Raw(stclass.Text + " ") </dd>
+        }
+    
     </dl>
 </div>
 <p>
