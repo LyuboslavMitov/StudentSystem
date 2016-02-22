@@ -17,9 +17,9 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44300</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -53,6 +53,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcCheckBoxList, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcCheckBoxList.1.4.5\lib\net45\MvcCheckBoxList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -190,19 +194,23 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Gridmvc.css" />
     <Content Include="Partial_Components\LoginForm\145572020435992.png" />
     <Content Include="Partial_Components\LoginForm\login-form.css" />
     <Content Include="Partial_Components\LoginForm\login-form.js" />
     <Content Include="Partial_Components\LoginForm\RegisterButton.js" />
+    <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Partial_Components\TestPage\images\12721844_1079269818791389_1856501200_n.jpg" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Views\Home\Insert.cshtml" />
+    <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Views\Shared\ModalChoose.cshtml" />
-    <None Include="Views\Shared\ModalAdd.cshtml" />
     <Content Include="Partial_Components\Modals\LoginModal.css" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
-    <None Include="Views\Shared\ChooseModal.cshtml" />
     <None Include="Partial_Components\Modals\InsertModal.cshtml" />
-    <Content Include="Partial_Components\LoginModal.css" />
     <Content Include="Partial_Components\Modals\modal.css" />
     <Content Include="Partial_Components\Modals\modals.js" />
     <Content Include="Partial_Components\sidebar\css\bootstrap.css" />
@@ -223,9 +231,6 @@
     <Content Include="Partial_Components\TestPage\js\modernizr.custom.72241.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\gridmvc.js" />
-    <Content Include="Scripts\gridmvc.lang.ru.js" />
-    <Content Include="Scripts\gridmvc.min.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
