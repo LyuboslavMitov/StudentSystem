@@ -25,7 +25,20 @@ namespace StudentSystem.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                        "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/sidebar/css").Include(
+                      "~/Partial_Components/sidebar/css/simple-sidebar.css"));
+
+            bundles.Add(new StyleBundle("~/sidebar/jquery").Include(
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/jquery.js"));
+
+
+
+
 
         }
     }
