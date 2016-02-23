@@ -22,21 +22,36 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
             return studentClassesList;
         }
+    //    protected List<SelectListItem> TeacherClassesList(string id)
+    //{
+    //    var teacherClassesList = this.data.StudentClasses.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
+    //        {
+    //            Text = x.ClassName,
+    //            Value = x.StudentClassID.ToString()
+    //        }).ToList();
+    //    return teacherClassesList;
+    //}
         protected List<SelectListItem> TeacherClassesList(string id)
     {
-        var teacherClassesList = this.data.StudentClasses.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
+            var teacherClasses = this.data.Users.Find(id).StudentClasses.ToList();
+            var teacherClassesSelectList = this.data.StudentClasses.All().ToList().Select(x => new SelectListItem
             {
                 Text = x.ClassName,
-                Value = x.StudentClassID.ToString()
+                Value = x.StudentClassID.ToString(),
+                Selected = teacherClasses.Any(c => c.StudentClassID == x.StudentClassID)
             }).ToList();
-        return teacherClassesList;
+
+            return teacherClassesSelectList;
     }
+
         protected List<SelectListItem> TeacherSubjectsList(string id)
         {
-            var teacherSubjectsList = this.data.Subjects.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
+            var teacherSubjects = this.data.Users.Find(id).Subjects.ToList();
+            var teacherSubjectsList = this.data.Subjects.All().ToList().Select(x => new SelectListItem
             {
                 Text = x.SubjectName,
-                Value = x.SubjectID.ToString()
+                Value = x.SubjectID.ToString(),
+                Selected = teacherSubjects.Any(c => c.SubjectID == x.SubjectID)
             }).ToList();
             return teacherSubjectsList;
         }

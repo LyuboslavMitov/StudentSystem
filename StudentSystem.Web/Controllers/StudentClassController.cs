@@ -12,10 +12,11 @@ using StudentSystem.DatabaseModels;
 
 namespace StudentSystem.Web.Controllers
 {
+    //[Authorize(Users="deevvil_pz@abv.bg")]
     public class StudentClassController : BaseController
     {
-        
 
+        
         // GET: StudentClass
 
         public ActionResult Index()

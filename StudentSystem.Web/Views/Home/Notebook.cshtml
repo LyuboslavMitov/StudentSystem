@@ -1,13 +1,18 @@
-﻿
-@{
+﻿@model StudentSystem.Web.Models.TeacherAssignerViewModel
     ViewBag.Title = "Бележник";
 }
 <body>
-  <div>
-      @Html.CheckBoxListFor()
-  </div> 
+    <h1 class="title">
+        Клас: 
+
+    @Html.DropDownList( "EnumerableTeacherClasses");
 
 
+</h1>
+
+    <h2 class="title">
+        Предмет:
+    </h2>
 
 </body>
 

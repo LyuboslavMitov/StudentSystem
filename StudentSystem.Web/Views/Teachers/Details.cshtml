@@ -20,9 +20,19 @@
         <dt>@Html.DisplayNameFor(model => model.StudentClasses)</dt>
         @foreach (var stclass in Model.StudentClasses)
         {
-            <dd>  @Html.Raw(stclass.Text + " ") </dd>
+            if (stclass.Selected)
+            {
+                <dd>  @Html.Raw(stclass.Text + " ") </dd>
+            }
         }
-    
+        <dt>@Html.DisplayNameFor(model => model.Subjects)</dt>
+        @foreach (var subject in Model.Subjects)
+        {
+            if (subject.Selected)
+            {
+                <dd>  @Html.Raw(subject.Text + " ") </dd>
+            }
+        }
     </dl>
 </div>
 <p>
