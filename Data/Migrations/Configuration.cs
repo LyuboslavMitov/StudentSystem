@@ -42,7 +42,7 @@ namespace StudentSystem.Data.Migrations
                     FirstName = "Andrew",
                     SecondName = "J.",
                     LastName = " Peters",
-                    Number = 1234567,
+                    Number = 25,
                     StudentClass = cls
                 };
                 var stud1 = new Student
@@ -50,24 +50,24 @@ namespace StudentSystem.Data.Migrations
                     FirstName = "Lyuboslav",
                     SecondName = "J.",
                     LastName = " Mitov",
-                    Number = 123456,
-                    StudentClass = cls
+                    Number = 15,
+                    StudentClass = cls1
                 };
                 var stud2 = new Student
                 {
                     FirstName = "Stoil",
                     SecondName = "J.",
                     LastName = " Yankov",
-                    Number = 12345,
-                    StudentClass = cls
+                    Number = 22,
+                    StudentClass = cls1
                 };
                 var stud3 = new Student
                 {
-                    FirstName = "Stoil",
+                    FirstName = "Marin",
                     SecondName = "J.",
-                    LastName = " Takoata",
-                    Number = 12345,
-                    StudentClass = cls
+                    LastName = " Karadjov",
+                    Number = 16,
+                    StudentClass = cls1
                 };
                 context.Students.Add(stud);
                 context.Students.Add(stud1);
@@ -75,20 +75,19 @@ namespace StudentSystem.Data.Migrations
                 context.Students.Add(stud3);
                 context.SaveChanges();
                 
-                if (!context.Users.Any(u => u.UserName == "deevvil_pz@abv.bg"))
+                if (!context.Users.Any(u => u.UserName == "admin@mail.com"))
                 {
                     var store = new UserStore<ApplicationUser>(context);
                     var manager = new UserManager<ApplicationUser>(store);
-                    var user = new ApplicationUser
+                    var admin = new ApplicationUser
                     {
-                        UserName = "deevvil_pz@abv.bg",
-                        Email = "deevvil_pz@abv.bg",
-                        PhoneNumber = "0889862464",
-                        
+                        UserName = "admin@mail.com",
+                        Email = "admin@mail.com",
+                        PhoneNumber="0883422356"
                     };
 
                    
-                    manager.Create(user, "123asd");
+                    manager.Create(admin, "admin123");
                    
                 }
                 if (!context.Users.Any(u => u.UserName == "teacher@abv.bg"))

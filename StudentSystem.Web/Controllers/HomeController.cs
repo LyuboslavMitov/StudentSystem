@@ -38,9 +38,10 @@ namespace StudentSystem.Web.Controllers
              List<SelectListItem> currentTeacherClasses = this.TeacherClassesList(id).Where(x=>x.Selected).ToList();
              List<SelectListItem> currentTeacherSubjects = this.TeacherSubjectsList(id).Where(x=>x.Selected).ToList();
              ViewBag.CurrentTeacherClasses = currentTeacherClasses;
-            ViewBag.CurrentTeacherSubjects = currentTeacherSubjects;
-            ViewBag.CurrentUserID = id;
-            return View();
+             ViewBag.CurrentTeacherSubjects = currentTeacherSubjects;
+             ViewBag.CurrentUserID = id;
+             return View();
+            
 
         }
         public ActionResult Insert()

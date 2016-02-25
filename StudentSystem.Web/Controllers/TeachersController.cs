@@ -13,8 +13,8 @@ using System.Data.Entity.Infrastructure;
 
 namespace StudentSystem.Web.Controllers
 {
-    //[Authorize(Users="deevvil_pz@abv.bg")]
-    public class TeachersController : BaseController
+
+    public class TeachersController : AdminController
     {
         
 

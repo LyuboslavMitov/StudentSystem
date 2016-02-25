@@ -12,8 +12,8 @@ using StudentSystem.DatabaseModels;
 
 namespace StudentSystem.Web.Controllers
 {
-    //[Authorize(Users="deevvil_pz@abv.bg")]
-    public class StudentsController : BaseController
+
+    public class StudentsController : AdminController
     {
 
         // GET: Students
