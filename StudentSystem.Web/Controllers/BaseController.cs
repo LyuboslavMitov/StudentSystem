@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Linq;
+using Microsoft.AspNet.Identity;
+
 using StudentSystem.DatabaseModels;
 namespace StudentSystem.Web.Controllers
 {
@@ -46,6 +48,23 @@ namespace StudentSystem.Web.Controllers
                 Selected = teacherSubjects.Any(c => c.SubjectID == x.SubjectID)
             }).ToList();
             return teacherSubjectsList;
+        }
+        private ApplicationUser GetCurrentUser()
+        {
+            string userId = this.User.Identity.GetUserId();
+            var user = this.data.Users.All().FirstOrDefault(u => u.Id == userId);
+            return user;
+        }
+
+       // protected ApplicationUser CurrentUser { get; set; }
+        protected ApplicationUser CurrentUser
+        {
+            get
+            {
+                string userId = this.User.Identity.GetUserId();
+                var user = this.data.Users.All().FirstOrDefault(u => u.Id == userId);
+                return user;
+            }
         }
     }
 }

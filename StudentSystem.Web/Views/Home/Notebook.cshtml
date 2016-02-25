@@ -1,18 +1,17 @@
-﻿@model StudentSystem.Web.Models.TeacherAssignerViewModel
+﻿@model  StudentSystem.Web.Models.TeacherClassesSubjectsViewModel
+@{
     ViewBag.Title = "Бележник";
+    string currentUserId = ViewBag.CurrentUserID;
+    List<SelectListItem> currentTeacherClasses = (List<SelectListItem>)ViewBag.CurrentTeacherClasses;
+    List<SelectListItem> currentTeacherSubjects = (List<SelectListItem>)ViewBag.CurrentTeacherSubjects;
 }
 <body>
     <h1 class="title">
-        Клас: 
-
-    @Html.DropDownList( "EnumerableTeacherClasses");
-
-
+      @Html.Label(currentUserId)
 </h1>
-
-    <h2 class="title">
-        Предмет:
-    </h2>
+    @Html.DropDownListFor(Model=>Model.ClassId , currentTeacherClasses)
+    
+        @Html.DropDownListFor(Model => Model.SubjectId, currentTeacherSubjects)
 
 </body>
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using StudentSystem.DatabaseModels;
 namespace StudentSystem.Web.Controllers
 {
     [RequireHttps]
@@ -32,19 +33,15 @@ namespace StudentSystem.Web.Controllers
         }
         public ActionResult Notebook(string id)
         {
-            id = User.Identity.GetUserId();
-            //ApplicationUser foundTeacher = this.data.Users.Find(id);
-            if (id== null)
-            {
-                return HttpNotFound();
-            }
-            List<SelectListItem> teacherClasses = this.TeacherClassesList(id);
-            List<SelectListItem> teacherSubjects = this.TeacherSubjectsList(id);
-            ViewBag.Message = "Бележникът.";
-            var enumerableTeacherClasses = teacherClasses as IEnumerable<SelectListItem>;
-            ViewData["EnumerableTeacherClasses"] = enumerableTeacherClasses;
-            ViewData["TeacherSubjects"] = teacherSubjects;
+             ApplicationUser currentUser = CurrentUser;
+             id = currentUser.Id;
+             List<SelectListItem> currentTeacherClasses = this.TeacherClassesList(id).Where(x=>x.Selected).ToList();
+             List<SelectListItem> currentTeacherSubjects = this.TeacherSubjectsList(id).Where(x=>x.Selected).ToList();
+             ViewBag.CurrentTeacherClasses = currentTeacherClasses;
+            ViewBag.CurrentTeacherSubjects = currentTeacherSubjects;
+            ViewBag.CurrentUserID = id;
             return View();
+
         }
         public ActionResult Insert()
         {

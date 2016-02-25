@@ -190,6 +190,7 @@
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Models\SubjectViewModel.cs" />
     <Compile Include="Models\TeacherAssignerViewModel.cs" />
+    <Compile Include="Models\TeacherClassesSubjectsViewModel.cs" />
     <Compile Include="Models\TeacherViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
