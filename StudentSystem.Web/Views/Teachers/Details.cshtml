@@ -18,20 +18,35 @@
             @Html.DisplayFor(model => model.userName)
         </dd>
         <dt>@Html.DisplayNameFor(model => model.StudentClasses)</dt>
-        @foreach (var stclass in Model.StudentClasses)
+        @if (Model.HasStudentClasses) 
         {
-            if (stclass.Selected)
+            foreach (var stclass in Model.StudentClasses)
             {
-                <dd>  @Html.Raw(stclass.Text + " ") </dd>
+                if (stclass.Selected)
+                {
+                    <dd>  @Html.Raw(stclass.Text + " ") </dd>
+                }
             }
         }
-        <dt>@Html.DisplayNameFor(model => model.Subjects)</dt>
-        @foreach (var subject in Model.Subjects)
+        else
         {
-            if (subject.Selected)
+            <dd> @Html.Label("Няма избран клас!")</dd>
+        }
+
+        <dt>@Html.DisplayNameFor(model => model.Subjects)</dt>
+        @if (Model.HasSubjects) 
+        {
+            foreach (var subject in Model.Subjects)
             {
-                <dd>  @Html.Raw(subject.Text + " ") </dd>
+                if (subject.Selected)
+                {
+                    <dd>  @Html.Raw(subject.Text + " ") </dd>
+                }
             }
+        }
+        else
+        {
+            <dd> @Html.Label("Няма избран предмет!")</dd>
         }
     </dl>
 </div>

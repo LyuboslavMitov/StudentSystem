@@ -28,6 +28,7 @@ namespace StudentSystem.Web.Models
         //public int Mark6 { get; set; }
         public string StudentClass { get; set; }
         public int StudentClassID { get; set; }
+        List<int> Marks { get; set; }
 
         public static Expression<Func<Student, StudentViewModel>> FromStudentModel
         {

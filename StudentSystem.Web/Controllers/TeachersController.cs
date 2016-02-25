@@ -78,19 +78,61 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int[] selectedClasses, int[] selectedSubjects, string UserID)   //Finish this shit
             {
-                ApplicationUser foundTeacher = this.data.Users.Find(UserID);
+                //ApplicationUser foundTeacher = this.data.Users.Find(UserID);
+                //try
+                //{
+                //    List<StudentClass> classes = new List<StudentClass>();
+                   
+
+                //    foreach (var item in selectedClasses)
+                //    {
+                //        var foundedClass = this.data.StudentClasses.Find(item);
+                //        classes.Add(foundedClass);
+                //    }
+                //    foundTeacher.StudentClasses.Clear();
+                //    foundTeacher.StudentClasses = classes;
+                //}
+
+                //catch (NullReferenceException )
+                //{
+                //    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                //}
+
+                //try
+                //{
+                //    List<Subject> subjects = new List<Subject>();
+                //    foreach (var subject in selectedSubjects)
+                //    {
+                //        var foundedSubject = this.data.Subjects.Find(subject);
+                //        subjects.Add(foundedSubject);
+                //    }
+                //    foundTeacher.Subjects.Clear();
+                //    foundTeacher.Subjects = subjects;
+                //}
+
+                //catch (NullReferenceException)
+                //{
+                //    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+                //}
+                //this.data.SaveChanges();
+                //return RedirectToAction("Details", "Teachers", new { id = UserID });
+
+                            ApplicationUser foundTeacher = this.data.Users.Find(UserID);
+                foundTeacher.StudentClasses.Clear();
+                foundTeacher.Subjects.Clear();
                 try
                 {
                     List<StudentClass> classes = new List<StudentClass>();
-                   
 
-                    foreach (var item in selectedClasses)
+                    if (selectedClasses != null)
                     {
-                        var foundedClass = this.data.StudentClasses.Find(item);
-                        classes.Add(foundedClass);
+                        foreach (var item in selectedClasses)
+                        {
+                            var foundedClass = this.data.StudentClasses.Find(item);
+                            classes.Add(foundedClass);
+                        }
+                        foundTeacher.StudentClasses = classes;
                     }
-                    foundTeacher.StudentClasses.Clear();
-                    foundTeacher.StudentClasses = classes;
                 }
 
                 catch (NullReferenceException )
@@ -100,23 +142,33 @@ namespace StudentSystem.Web.Controllers
 
                 try
                 {
-                    List<Subject> subjects = new List<Subject>();
-                    foreach (var subject in selectedSubjects)
+                    if (selectedSubjects != null)
                     {
-                        var foundedSubject = this.data.Subjects.Find(subject);
-                        subjects.Add(foundedSubject);
+                        List<Subject> subjects = new List<Subject>();
+                        foreach (var subject in selectedSubjects)
+                        {
+                            var foundedSubject = this.data.Subjects.Find(subject);
+                            subjects.Add(foundedSubject);
+                        }
+                        
+                        foundTeacher.Subjects = subjects;
                     }
-                    foundTeacher.Subjects.Clear();
-                    foundTeacher.Subjects = subjects;
                 }
 
                 catch (NullReferenceException)
                 {
                     ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
                 }
+                this.data.Users.Update(foundTeacher);
                 this.data.SaveChanges();
                 return RedirectToAction("Details", "Teachers", new { id = UserID });
             }
+            
+
+
+
+
+
 
 
 

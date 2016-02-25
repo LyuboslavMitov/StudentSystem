@@ -10,5 +10,19 @@ namespace StudentSystem.Web.Models
     {
        public IEnumerable<SelectListItem> StudentClasses { get; set; }
        public IEnumerable<SelectListItem> Subjects { get; set; }
+       public bool HasStudentClasses
+       {
+           get
+           {
+               return this.StudentClasses.Any(x => x.Selected);
+           }
+       }
+        public bool HasSubjects
+       {
+           get
+           {
+               return this.Subjects.Any(x => x.Selected);
+           }
+       }
     }
 }

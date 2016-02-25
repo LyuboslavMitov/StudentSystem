@@ -14,6 +14,7 @@
     </fieldset>
     <fieldset>
         <legend>Избор на предметите</legend>
+        
         @foreach (var studentClass in Model.StudentClasses)
         {
             <input type="checkbox" id="@studentClass.Value" name="selectedClasses" value="@studentClass.Value"
@@ -22,9 +23,12 @@
             @Html.Label(studentClass.Text)
             <br />
         }
+        
+        
     </fieldset>
     <fieldset>
         <legend>Izbor на класовете</legend>
+
         @foreach (var subject in Model.Subjects)
         {
             <input type="checkbox" id="@subject.Value" name="selectedSubjects" value="@subject.Value"
@@ -32,7 +36,8 @@
                                                                         } />
             @Html.Label(subject.Text)
             <br />
-        }
+            }
+        
         <input type="submit" value="Запиши" class="btn btn-default" />
         @Html.ActionLink("Отказ", "Index", null, new { @class = "btn btn-default" })
     </fieldset>

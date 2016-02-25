@@ -22,15 +22,7 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
             return studentClassesList;
         }
-    //    protected List<SelectListItem> TeacherClassesList(string id)
-    //{
-    //    var teacherClassesList = this.data.StudentClasses.All().Where(c => c.Teachers.Any(t => t.Id == id)).Select(x => new SelectListItem
-    //        {
-    //            Text = x.ClassName,
-    //            Value = x.StudentClassID.ToString()
-    //        }).ToList();
-    //    return teacherClassesList;
-    //}
+
         protected List<SelectListItem> TeacherClassesList(string id)
     {
             var teacherClasses = this.data.Users.Find(id).StudentClasses.ToList();
