@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EvaluateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentClassController.cs" />
@@ -185,11 +186,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminStudentViewModel.cs" />
+    <Compile Include="Models\EvaluateStudentViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MarkViewModel.cs" />
     <Compile Include="Models\StudentClassViewModel.cs" />
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Models\SubjectViewModel.cs" />
+    <Compile Include="Models\TableViewModel.cs" />
     <Compile Include="Models\TeacherAssignerViewModel.cs" />
     <Compile Include="Models\TeacherClassesSubjectsViewModel.cs" />
     <Compile Include="Models\TeacherViewModel.cs" />
@@ -213,6 +216,7 @@
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Evaluate\Index.cshtml" />
     <None Include="Views\Shared\ModalChoose.cshtml" />
     <Content Include="Partial_Components\Modals\LoginModal.css" />
     <Content Include="Views\Admin\Index.cshtml" />
