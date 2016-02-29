@@ -6,6 +6,7 @@ using System.Web;
 
 namespace StudentSystem.Web.Models
 {
+    //ViewModel за връзка с таблицата Marks от базата и визуализация на необходимите данни
     public class MarkViewModel
     {
         [Key]

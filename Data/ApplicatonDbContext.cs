@@ -12,7 +12,10 @@ using StudentSystem.Data.Migrations;
 
 namespace StudentSystem.Data
 {
-
+    /*DbContext-а който се инстанцира е необходимо да наследява IdentityDbContext,
+      за да е възможно използването на системата за идентификация и оторизация, предоставена от 
+     ASP.NET Identity и да имплементира интерфейса IApplicationDbContext,
+     в който са дефинирани DbSet-обектите с които работи контекста*/
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser> , IApplicationDbContext
     {
         public ApplicationDbContext()
@@ -40,6 +43,7 @@ namespace StudentSystem.Data
         {
             return base.SaveChanges();
         }
+
 
        
 

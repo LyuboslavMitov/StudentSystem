@@ -211,12 +211,15 @@
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Partial_Components\TestPage\images\12721844_1079269818791389_1856501200_n.jpg" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Partial_Components\sidebar\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Evaluate\Index.cshtml" />
+    <Content Include="Views\Evaluate\List.cshtml" />
     <None Include="Views\Shared\ModalChoose.cshtml" />
     <Content Include="Partial_Components\Modals\LoginModal.css" />
     <Content Include="Views\Admin\Index.cshtml" />

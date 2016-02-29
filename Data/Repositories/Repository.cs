@@ -6,7 +6,8 @@
     using System.Data.Entity.Validation;
     using System.Linq;
     using System.Linq.Expressions;
-
+    /*Всеки Repository обект имплементира методите за реализиране на CRUD-операции,
+    определени от интерфейса IRepository*/
     public class Repository<T> : IRepository<T> where T : class
     {
         private DbContext context;

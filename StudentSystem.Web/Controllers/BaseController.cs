@@ -8,6 +8,8 @@ using Microsoft.AspNet.Identity;
 using StudentSystem.DatabaseModels;
 namespace StudentSystem.Web.Controllers
 {
+    /* Този контролер съдържа инстанцирането на DB-context-a идващ от StudentSystemData,
+       както и методи които да използваме на различни места в приложението*/
     public class BaseController : Controller
     {
         protected IStudentSystemData data;
@@ -24,9 +26,9 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
             return studentClassesList;
         }
-
+        //Метод който връща List със selectItem за всеки клас на даден учител
         protected List<SelectListItem> TeacherClassesList(string id)
-    {
+        {
             var teacherClasses = this.data.Users.Find(id).StudentClasses.ToList();
             var teacherClassesSelectList = this.data.StudentClasses.All().ToList().Select(x => new SelectListItem
             {
@@ -36,8 +38,8 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
 
             return teacherClassesSelectList;
-    }
-
+        }
+        //Метод който връща List със selectItem за всеки предмет, по който преподава даден учител
         protected List<SelectListItem> TeacherSubjectsList(string id)
         {
             var teacherSubjects = this.data.Users.Find(id).Subjects.ToList();
@@ -49,6 +51,7 @@ namespace StudentSystem.Web.Controllers
             }).ToList();
             return teacherSubjectsList;
         }
+        //Метод който връща текущия логнат потребител
         private ApplicationUser GetCurrentUser()
         {
             string userId = this.User.Identity.GetUserId();
@@ -56,7 +59,7 @@ namespace StudentSystem.Web.Controllers
             return user;
         }
 
-       // protected ApplicationUser CurrentUser { get; set; }
+       //Проперти за текущия логнат потребител
         protected ApplicationUser CurrentUser
         {
             get

@@ -16,15 +16,11 @@ namespace StudentSystem.Data.Migrations
             AutomaticMigrationsEnabled =true;
             AutomaticMigrationDataLossAllowed = true;
         }
-
+     /* При първоначално стартиране на системата се изпълнява първоначално запълване на базата с данни (т.нар seed),
+        включващo регистриране и профил на поне един администратор*/
         protected override void Seed(StudentSystem.Data.ApplicationDbContext context)
         {
 
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplica9te seed data. E.g.
-            //
             if(!context.StudentClasses.Any(c=>c.ClassName == "11A"))
             {
 

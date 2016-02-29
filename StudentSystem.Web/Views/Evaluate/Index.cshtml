@@ -6,7 +6,7 @@
     List<SelectListItem> currentTeacherSubjects = (List<SelectListItem>)ViewBag.CurrentTeacherSubjects;
 }
 
-@using (Ajax.BeginForm("LoadStudents", new AjaxOptions
+@using (Ajax.BeginForm("List", new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "results",
@@ -20,5 +20,5 @@
 <div id="results">
     Избери клас и предмет
 </div>
-<h2>Index</h2>
+
 

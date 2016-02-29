@@ -7,15 +7,18 @@ using System.Web;
 
 namespace StudentSystem.Web.Models
 {
+    //ViewModel за оценяването на ученици
     public class EvaluateStudentViewModel : StudentViewModel
     {
-        List<MarkViewModel> Marks { get; set; }
-        int SubjectID { get; set; }
-        public static Expression<Func<Student, EvaluateStudentViewModel>> FromStudentModel
+        public List<MarkViewModel> Marks { get; set; }
+        public int SubjectID { get; set; }
+
+        
+        public static Func<Student, int, EvaluateStudentViewModel> FromStudentModelWithMarks
         {
             get
             {
-                return x => new EvaluateStudentViewModel
+                return (x, i) => new EvaluateStudentViewModel
                 {
                     StudentID = x.StudentID,
                     FirstName = x.FirstName,
@@ -23,7 +26,8 @@ namespace StudentSystem.Web.Models
                     LastName = x.LastName,
                     Number = x.Number,
                     StudentClass = x.StudentClass.ClassName,
-                    Marks = x.Marks.OrderBy(o => o.Created).Select(m => new MarkViewModel
+                    StudentClassID = x.StudentClass.StudentClassID,
+                    Marks = x.Marks.Where(m => m.SubjectID == i).OrderBy(o => o.Created).Select(m => new MarkViewModel
                     {
                         MarkID = m.MarkID,
                         Created = m.Created,
@@ -32,5 +36,6 @@ namespace StudentSystem.Web.Models
                 };
             }
         }
+
     }
 }

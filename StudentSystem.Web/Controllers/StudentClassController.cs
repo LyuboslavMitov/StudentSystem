@@ -12,13 +12,9 @@ using StudentSystem.DatabaseModels;
 
 namespace StudentSystem.Web.Controllers
 {
-
+    //Контролер, който позволява на админа да въвежда нови класове
     public class StudentClassController : AdminController 
     {
-
-        
-        // GET: StudentClass
-
         public ActionResult Index()
         {
             var classes = this.data.StudentClasses.All().Select(StudentClassViewModel.FromStudentClassModel).ToList();
@@ -53,10 +49,6 @@ namespace StudentSystem.Web.Controllers
         {
             return View();
         }
-
-        // POST: StudentClasses/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         // тука вече се POST-ват данните, попълнени във View-то от потребителя
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -71,23 +63,19 @@ namespace StudentSystem.Web.Controllers
             }
             StudentClass newClass = new StudentClass()
             {
-                // само името - StudentClassID се създава от EntityFramework
-                // оценките и учениците се попълват от друг контролер!!!
+
                 ClassName = studentClassViewModel.ClassName
             };
             this.data.StudentClasses.Add(newClass);
             this.data.SaveChanges();
 
-            // отиваме на индекса за класовете (или където искаме след успешно създаден клас)
             return RedirectToAction("Index");
         }
 
-        // GET: StudentClass/Edit/5
         // както на детайлите - зареждаме модела и го подаваме с View за редакция!
         public ActionResult Edit(int? id)
         {
            
-            // практически кода се дублира с този от Details(id)
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -113,7 +101,7 @@ namespace StudentSystem.Web.Controllers
         public ActionResult Edit([Bind(Include = "StudentClassID,ClassName")] StudentClassViewModel studentClassViewModel)
         {
             
-            if (!ModelState.IsValid) // по-четимо е като излезем веднага при проблем
+            if (!ModelState.IsValid)
             {
                 // не е наред, връщаме за да се попълни/коригира
                 return View(studentClassViewModel);
@@ -126,21 +114,14 @@ namespace StudentSystem.Web.Controllers
                 return HttpNotFound();
             }
 
-            // всичко е ок дотук
-
             studentClassToUpdate.ClassName = studentClassViewModel.ClassName;
-            // другите неща - на други места, тук само името
-
+            
             this.data.StudentClasses.Update(studentClassToUpdate);
             this.data.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
-
-        // GET: StudentClass/Delete/5
-
-        // GET: StudentClasses/Delete/5
         // взима ViewModel на класа за триене и го връща на юзъра за потвърждение
         public ActionResult Delete(int? id)
         {
@@ -166,10 +147,7 @@ namespace StudentSystem.Web.Controllers
 
         }
 
-
-
-        // POST: StudentClasses/Delete/5
-        // Потребителя е потвърдил че ще трие
+        // Админът е потвърдил че ще трие
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -179,10 +157,6 @@ namespace StudentSystem.Web.Controllers
             {
                 return HttpNotFound();
             }
-
-            // по принцип данни не се трият а се крият
-            // може да се наложи обхождане на пропъртитата - оценки и ученици 
-            // и да се трият ако е нужно и след това самия клас!
 
             this.data.StudentClasses.Delete(classToDelete);
             this.data.SaveChanges();

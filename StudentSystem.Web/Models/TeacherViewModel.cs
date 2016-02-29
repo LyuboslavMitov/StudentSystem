@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Models
 {
+    //ViewModel за връзка с таблицата AspNetUsers от базата и визуализация на необходимите данни
     public class TeacherViewModel
     {
         [Key]

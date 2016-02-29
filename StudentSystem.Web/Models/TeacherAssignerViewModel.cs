@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Models
 {
+    //ViewModel za TeachersController със списъци съдържащи избраните предмети и класове
     public class TeacherAssignerViewModel : TeacherViewModel
     {
        public IEnumerable<SelectListItem> StudentClasses { get; set; }

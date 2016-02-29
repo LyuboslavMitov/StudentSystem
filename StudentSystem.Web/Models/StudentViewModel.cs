@@ -8,6 +8,7 @@ using System.Web;
 
 namespace StudentSystem.Web.Models
 {
+    //ViewModel за връзка с таблицата Students от базата и визуализация на необходимите данни
     public class StudentViewModel
     {
     
@@ -20,16 +21,10 @@ namespace StudentSystem.Web.Models
 
         public string LastName { get; set; }
         public int Number { get; set; }
-        //public int Mark1 { get; set; }
-        //public int Mark2 { get; set; }
-        //public int Mark3 { get; set; }
-        //public int Mark4 { get; set; }
-        //public int Mark5 { get; set; }
-        //public int Mark6 { get; set; }
         public string StudentClass { get; set; }
         public int StudentClassID { get; set; }
-       
 
+        //Expression Funcion за по лесно превръщане от DataBase model -> ViewModel
         public static Expression<Func<Student, StudentViewModel>> FromStudentModel
         {
             get

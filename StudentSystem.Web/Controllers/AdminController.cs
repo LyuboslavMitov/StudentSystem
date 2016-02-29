@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Controllers
 {
+    //Контролерите които го наследяват, могат да бъдат достъпвани само от админа
     [Authorize(Users="admin@mail.com")]
     public class AdminController : BaseController
     {

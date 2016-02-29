@@ -12,18 +12,16 @@ using StudentSystem.DatabaseModels;
 
 namespace StudentSystem.Web.Controllers
 {
-    
+    /*Контролер, който позволява на админа да въвежда нови предмети*/
     public class SubjectsController : AdminController
     {
-        
-        // GET: Subjects
+
         public ActionResult Index()
         {
             var subjects = this.data.Subjects.All().Select(SubjectViewModel.FromSubjectModel).ToList();
             return View(subjects);
         }
 
-        // GET: Subjects/Details/5
         public ActionResult Details(int? id)
         {
 
@@ -47,16 +45,11 @@ namespace StudentSystem.Web.Controllers
 
         }
 
-        // GET: Subjects/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: StudentClasses/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // тука вече се POST-ват данните, попълнени във View-то от потребителя
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SubjectID,SubjectName")] SubjectViewModel subjectViewModel)
@@ -70,22 +63,17 @@ namespace StudentSystem.Web.Controllers
             }
             Subject newSubject = new Subject()
             {
-                // само името - StudentClassID се създава от EntityFramework
-                // оценките и учениците се попълват от друг контролер!!!
                 SubjectName = subjectViewModel.SubjectName
             };
             this.data.Subjects.Add(newSubject);
             this.data.SaveChanges();
 
-            // отиваме на индекса за класовете (или където искаме след успешно създаден клас)
             return RedirectToAction("Index");
         }
 
-        // GET: Subjects/Edit/5
         public ActionResult Edit(int? id)
         {
 
-            // практически кода се дублира с този от Details(id)
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -106,16 +94,12 @@ namespace StudentSystem.Web.Controllers
             return View(subjectVM);
         }
 
-        // POST: Subjects/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SubjectID,SubjectName")] SubjectViewModel subjectViewModel)
         {
-            if (!ModelState.IsValid) // по-четимо е като излезем веднага при проблем
+            if (!ModelState.IsValid) 
             {
-                // не е наред, връщаме за да се попълни/коригира
                 return View(subjectViewModel);
             }
 
@@ -125,12 +109,7 @@ namespace StudentSystem.Web.Controllers
             {
                 return HttpNotFound();
             }
-
-            // всичко е ок дотук
-
             subjectToUpdate.SubjectName = subjectViewModel.SubjectName;
-            // другите неща - на други места, тук само името
-
             this.data.Subjects.Update(subjectToUpdate);
             this.data.SaveChanges();
 
@@ -161,10 +140,6 @@ namespace StudentSystem.Web.Controllers
 
         }
 
-
-
-        // POST: StudentClasses/Delete/5
-        // Потребителя е потвърдил че ще трие
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -174,10 +149,6 @@ namespace StudentSystem.Web.Controllers
             {
                 return HttpNotFound();
             }
-
-            // по принцип данни не се трият а се крият
-            // може да се наложи обхождане на пропъртитата - оценки и ученици 
-            // и да се трият ако е нужно и след това самия клас!
 
             this.data.Subjects.Delete(subjectToDelete);
             this.data.SaveChanges();

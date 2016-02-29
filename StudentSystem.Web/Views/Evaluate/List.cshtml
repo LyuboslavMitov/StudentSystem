@@ -1,0 +1,90 @@
+﻿@model IEnumerable<StudentSystem.Web.Models.EvaluateStudentViewModel>
+@using System.Linq;
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentClass)
+        </td>
+        
+        <td>
+            @{
+    var srudentMarksId = item.StudentID.ToString() + "_marks";
+            }
+            <div id=@srudentMarksId>
+
+                @String.Join(", ", item.Marks.Select(a => a.Grade.ToString()).ToArray())
+                
+            </div>
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
+            @Html.ActionLink("Детайли", "Details", new
+       {
+           studentId = item.StudentID.ToString(),
+           classId = item.StudentClassID.ToString(),
+           subjectId = item.SubjectID.ToString()
+       })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.StudentID })*@
+            <div class="form-group">
+
+                @using (Ajax.BeginForm("Create", new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = item.StudentID.ToString() + "_marks",
+                }))
+                {
+
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(modelItem => item.StudentID, new { Name = "studentId" })
+                    @Html.HiddenFor(modelItem => item.SubjectID, new { Name = "subjectId" })
+                    @Html.EditorFor(modelItem => item.NewMark, null, "newMarkValue", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(modelItem => item.NewMark, "", new { @class = "text-danger" })
+                    <input type="submit" value="Добави" class="btn btn-default" />
+                }
+            </div>
+        </td>
+    </tr>
+}
+
+</table>
