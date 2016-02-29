@@ -49,5 +49,10 @@ namespace StudentSystem.Web.Controllers
             ViewData["Data2"] = selectSubjectList;
             return View();
         }
+
+        public ActionResult Welcome()
+        {
+            return View();
+        }
     }
 }

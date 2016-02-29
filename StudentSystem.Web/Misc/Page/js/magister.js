@@ -1,7 +1,7 @@
 // global. currently active menu item 
 var current_item = 0;
 
-// few settings
+// nastroiki za animaciqta
 var section_hide_time = 1300;
 var section_show_time = 1300;
 
@@ -13,7 +13,6 @@ jQuery(document).ready(function($) {
 	{
 		if( ! $(this).hasClass('active') ) { 
 			current_item = this;
-			// close all visible divs with the class of .section
 			$('.section:visible').fadeOut( section_hide_time, function() { 
 				$('a', '.mainmenu').removeClass( 'active' );  
 				$(current_item).addClass( 'active' );
