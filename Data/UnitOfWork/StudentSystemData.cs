@@ -29,7 +29,7 @@ namespace StudentSystem.Data.UnitOfWork
 
         }
       
-       // Definirane na  repository-ta
+       // Дефиниране на repository за всяка таблица от базата данни
         public IRepository<ApplicationUser> Users
         {
             get

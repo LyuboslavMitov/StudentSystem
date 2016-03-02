@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Бележник";
+        
+    List<SelectListItem> currentTeacherClasses = (List<SelectListItem>)ViewBag.CurrentTeacherClasses;
+    List<SelectListItem> currentTeacherSubjects = (List<SelectListItem>)ViewBag.CurrentTeacherSubjects;
+}
+
+@using (Ajax.BeginForm("List", new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "results",
+}))
+{
+@Html.AntiForgeryToken()
+@Html.DropDownList("selectedClassId", currentTeacherClasses)
+@Html.DropDownList("selectedSubjectId", currentTeacherSubjects)
+<input type="submit" value="Load" />
+}
+<div id="results">
+    Избери клас и предмет
+</div>
+
+

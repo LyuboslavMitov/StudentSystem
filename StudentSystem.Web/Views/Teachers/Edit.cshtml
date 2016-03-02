@@ -1,0 +1,45 @@
+﻿@model StudentSystem.Web.Models.TeacherAssignerViewModel
+@using (Html.BeginForm("Edit", "Teachers", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Редакция на класовете и предметите</legend>
+
+        @Html.AntiForgeryToken()
+
+        @Html.Hidden("userId", Model.UserID)
+        @Html.Label(Model.userName)<br />
+        @Html.Display(Model.userName)<br />@*или
+        @Html.LabelFor(model => model.PhoneNumber) <br />
+        @Html.DisplayFor(model => model.PhoneNumber) <br />*@
+    </fieldset>
+    <fieldset>
+        <legend>Избор на предметите</legend>
+        
+        @foreach (var studentClass in Model.StudentClasses)
+        {
+            <input type="checkbox" id="@studentClass.Value" name="selectedClasses" value="@studentClass.Value"
+                   @if (studentClass.Selected) { @: checked="checked"
+                                                                        } />
+            @Html.Label(studentClass.Text)
+            <br />
+        }
+        
+        
+    </fieldset>
+    <fieldset>
+        <legend>Izbor на класовете</legend>
+
+        @foreach (var subject in Model.Subjects)
+        {
+            <input type="checkbox" id="@subject.Value" name="selectedSubjects" value="@subject.Value"
+                   @if (subject.Selected) { @: checked="checked"
+                                                                        } />
+            @Html.Label(subject.Text)
+            <br />
+            }
+        
+        <input type="submit" value="Запиши" class="btn btn-default" />
+        @Html.ActionLink("Отказ", "Index", null, new { @class = "btn btn-default" })
+    </fieldset>
+
+}

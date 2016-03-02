@@ -1,10 +1,11 @@
-﻿using StudentSystem.Web.Models;
+﻿using StudentSystem.DatabaseModels;
+using StudentSystem.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Microsoft.AspNet.Identity;
 namespace StudentSystem.Web.Controllers
 {
     [RequireHttps]
@@ -29,10 +30,18 @@ namespace StudentSystem.Web.Controllers
 
             return View();
         }
-        public ActionResult Notebook()
+        public ActionResult Notebook(string id)
         {
-            ViewBag.Message = "Бележникът.";
-            return View();
+             ApplicationUser currentUser = CurrentUser;
+             id = currentUser.Id;
+             List<SelectListItem> currentTeacherClasses = this.TeacherClassesList(id).Where(x=>x.Selected).ToList();
+             List<SelectListItem> currentTeacherSubjects = this.TeacherSubjectsList(id).Where(x=>x.Selected).ToList();
+             ViewBag.CurrentTeacherClasses = currentTeacherClasses;
+             ViewBag.CurrentTeacherSubjects = currentTeacherSubjects;
+             ViewBag.CurrentUserID = id;
+             return View();
+            
+
         }
         public ActionResult Insert()
         {

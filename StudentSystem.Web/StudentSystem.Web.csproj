@@ -174,20 +174,28 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EvaluateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentClassController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminStudentViewModel.cs" />
+    <Compile Include="Models\EvaluateStudentViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MarkViewModel.cs" />
     <Compile Include="Models\StudentClassViewModel.cs" />
     <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Models\SubjectViewModel.cs" />
+    <Compile Include="Models\TableViewModel.cs" />
+    <Compile Include="Models\TeacherAssignerViewModel.cs" />
+    <Compile Include="Models\TeacherClassesSubjectsViewModel.cs" />
+    <Compile Include="Models\TeacherViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -208,12 +216,16 @@
     <Content Include="Scripts\velocity.min.js" />
     <Content Include="Misc\Page\images\12721844_1079269818791389_1856501200_n.jpg" />
     <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Misc\sidebar\partials\_layout.scss" />
     <Content Include="Misc\sidebar\partials\_mixins.scss" />
     <Content Include="Misc\sidebar\partials\_variables.scss" />
     <Content Include="Misc\sidebar\scss\style.scss" />
     <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Evaluate\Index.cshtml" />
+    <Content Include="Views\Evaluate\List.cshtml" />
     <None Include="Views\Shared\ModalChoose.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
@@ -246,7 +258,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Views\Shared\sidebar.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -297,6 +308,10 @@
     <Content Include="Views\Subjects\Details.cshtml" />
     <Content Include="Views\Subjects\Edit.cshtml" />
     <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
     <Content Include="Views\Shared\_sidebar.cshtml" />
     <Content Include="Views\Shared\_helpbutton.cshtml" />
   </ItemGroup>

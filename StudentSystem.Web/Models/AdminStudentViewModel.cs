@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Models
 {
-    public class AdminStudentViewModel
+    public class AdminStudentViewModel          //ПРОВЕРИ ДАЛИ Е НЕНУЖНО
     {
         [Key]
         public int StudentID { get; set; }

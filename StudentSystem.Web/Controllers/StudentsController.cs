@@ -12,10 +12,10 @@ using StudentSystem.DatabaseModels;
 
 namespace StudentSystem.Web.Controllers
 {
-    public class StudentsController : BaseController
+    /*Контролер, който позволява на админа да въвежда нови ученици,като определя от кой клас са*/
+    public class StudentsController : AdminController
     {
 
-        // GET: Students
         public ActionResult Index()
         {
             var students = this.data.Students.All().Select(StudentViewModel.FromStudentModel).ToList();
@@ -23,7 +23,6 @@ namespace StudentSystem.Web.Controllers
 
         }
 
-        // GET: Students/Details/5
         public ActionResult Details(int? id)
         {
 
@@ -50,7 +49,6 @@ namespace StudentSystem.Web.Controllers
 
         }
 
-        // GET: Students/Create
         public ActionResult Create()
         {
             var studentClassesList = StudentClassesSelectList();
@@ -59,8 +57,6 @@ namespace StudentSystem.Web.Controllers
         }
 
      
-
-        // тука вече се POST-ват данните, попълнени във View-то от потребителя
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,FirstName,SecondName,LastName,Number,StudentClassID")] StudentViewModel studentViewModel)
@@ -80,8 +76,7 @@ namespace StudentSystem.Web.Controllers
 
             Student newStudent = new Student()
             {
-                // само името - StudentClassID се създава от EntityFramework
-                // оценките и учениците се попълват от друг контролер!!!
+                
                 FirstName = studentViewModel.FirstName,
                 SecondName = studentViewModel.SecondName,
                 LastName = studentViewModel.LastName,
@@ -91,10 +86,10 @@ namespace StudentSystem.Web.Controllers
             this.data.Students.Add(newStudent);
             this.data.SaveChanges();
 
-            // отиваме на индекса за класовете (или където искаме след успешно създаден студент)
+            // отиваме на индекса за класовете след успешно създаден студент
             return RedirectToAction("Index");
         }
-        // GET: Students/Edit/5
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -127,7 +122,6 @@ namespace StudentSystem.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // ако нещо не е наред, връщаме за да се попълни/коригира
                 return View(studentViewModel);
             }
             var studentToEditClass = this.data.StudentClasses.Find(studentViewModel.StudentClassID);
@@ -146,8 +140,6 @@ namespace StudentSystem.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Students/Delete/5
-        //Nedovursheno 
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -162,7 +154,6 @@ namespace StudentSystem.Web.Controllers
             return View(studentViewModel);
         }
 
-        // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

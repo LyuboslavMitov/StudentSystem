@@ -1,9 +1,17 @@
-﻿
+﻿@model  StudentSystem.Web.Models.TeacherClassesSubjectsViewModel
 @{
     ViewBag.Title = "Бележник";
+    string currentUserId = ViewBag.CurrentUserID;
+    List<SelectListItem> currentTeacherClasses = (List<SelectListItem>)ViewBag.CurrentTeacherClasses;
+    List<SelectListItem> currentTeacherSubjects = (List<SelectListItem>)ViewBag.CurrentTeacherSubjects;
 }
-
 <body>
-    @Html.Partial("_sidebar")
-    @Html.Partial("_helpbutton")
+    <h1 class="title">
+      @Html.Label(currentUserId)
+</h1>
+    @Html.DropDownListFor(Model=>Model.ClassId , currentTeacherClasses)
+    
+        @Html.DropDownListFor(Model => Model.SubjectId, currentTeacherSubjects)
+
 </body>
+

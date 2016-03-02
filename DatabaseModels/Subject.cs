@@ -14,7 +14,15 @@ namespace StudentSystem.DatabaseModels
 
         public Subject()
         {
-            this.Marks = new List<Mark>();
+            this.Marks = new HashSet<Mark>();
+            this.Teachers = new HashSet<ApplicationUser>();
+        }
+        private ICollection<ApplicationUser> teachers;
+
+        public virtual ICollection<ApplicationUser> Teachers
+        {
+            get { return teachers; }
+            set { teachers = value; }
         }
         private ICollection<Mark> marks;
 

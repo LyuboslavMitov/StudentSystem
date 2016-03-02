@@ -1,0 +1,56 @@
+﻿@model StudentSystem.Web.Models.TeacherAssignerViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TeacherAssignerViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+        <dt>@Html.DisplayNameFor(model => model.StudentClasses)</dt>
+        @if (Model.HasStudentClasses) 
+        {
+            foreach (var stclass in Model.StudentClasses)
+            {
+                if (stclass.Selected)
+                {
+                    <dd>  @Html.Raw(stclass.Text + " ") </dd>
+                }
+            }
+        }
+        else
+        {
+            <dd> @Html.Label("Няма избран клас!")</dd>
+        }
+
+        <dt>@Html.DisplayNameFor(model => model.Subjects)</dt>
+        @if (Model.HasSubjects) 
+        {
+            foreach (var subject in Model.Subjects)
+            {
+                if (subject.Selected)
+                {
+                    <dd>  @Html.Raw(subject.Text + " ") </dd>
+                }
+            }
+        }
+        else
+        {
+            <dd> @Html.Label("Няма избран предмет!")</dd>
+        }
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
