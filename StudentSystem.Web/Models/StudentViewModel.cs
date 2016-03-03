@@ -14,11 +14,14 @@ namespace StudentSystem.Web.Models
     
         [Key]
         public int StudentID { get; set; }
-
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+         ErrorMessage = "Използвайте букви.")]
         public string FirstName { get; set; }
-
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+   ErrorMessage = "Използвайте букви.")]
         public string SecondName { get; set; }
-
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+   ErrorMessage = "Използвайте букви.")]
         public string LastName { get; set; }
         public int Number { get; set; }
         public string StudentClass { get; set; }

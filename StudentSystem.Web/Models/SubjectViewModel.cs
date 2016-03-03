@@ -13,6 +13,8 @@ namespace StudentSystem.Web.Models
     {
         [Key]
         public int SubjectID { get; set; }
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$",
+   ErrorMessage = "Използвайте букви.")]
         public string SubjectName { get; set; }
         //Expression Funcion за по лесно превръщане от DataBase model -> ViewModel
         public static Expression<Func<Subject, SubjectViewModel>> FromSubjectModel            

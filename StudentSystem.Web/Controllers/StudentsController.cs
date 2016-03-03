@@ -83,20 +83,20 @@ namespace StudentSystem.Web.Controllers
                 Number = studentViewModel.Number,
                 StudentClass=studentClassToAssign
             };
-            //Проверка дали съществува ученик от такъв клас с този номер 
-            if (this.data.Students.All().Any(s => s.Number == newStudent.Number && s.StudentClass == newStudent.StudentClass))
-            {
-                //ако съществува препращаме към индекс, без да добавяме ученика в базата
-                return RedirectToAction("Index");
-            }
-            else
-            {
+            ////Проверка дали съществува ученик от такъв клас с този номер 
+            //if (this.data.Students.All().Any(s => s.Number == newStudent.Number && s.StudentClass == newStudent.StudentClass))
+            //{
+            //    //ако съществува препращаме към индекс, без да добавяме ученика в базата
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
                 this.data.Students.Add(newStudent);
                 this.data.SaveChanges();
 
                 // отиваме на индекса за учениците след успешно създаден ученик
                 return RedirectToAction("Index");
-            }
+           // }
         }
 
         public ActionResult Edit(int? id)

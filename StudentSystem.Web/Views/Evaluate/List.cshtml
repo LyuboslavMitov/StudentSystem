@@ -1,35 +1,44 @@
 ﻿@model IEnumerable<StudentSystem.Web.Models.EvaluateStudentViewModel>
 @using System.Linq;
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
+<br />
 <table class="table">
     <tr>
-        
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @*@Html.DisplayNameFor(model => model.Number)*@
+            Номер
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SecondName)
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
+            Име
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @*@Html.DisplayNameFor(model => model.SecondName)*@
+            Презиме
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Number)
+            @*@Html.DisplayNameFor(model => model.LastName)*@
+            Фамилия
+        </th>
+
+        <th>
+            @*@Html.DisplayNameFor(model => model.StudentClass)*@
+            Клас
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StudentClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Marks)
+            @*@Html.DisplayNameFor(model => model.Marks)*@
+            Оценки
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.FirstName)
         </td>
@@ -39,9 +48,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Number)
-        </td>
+       
         <td>
             @Html.DisplayFor(modelItem => item.StudentClass)
         </td>
@@ -58,13 +65,13 @@
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
-            @Html.ActionLink("Детайли", "Details", new
-       {
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
+            @Html.ActionLink("Детайли", "Details", new*@
+       @*{
            studentId = item.StudentID.ToString(),
            classId = item.StudentClassID.ToString(),
            subjectId = item.SubjectID.ToString()
-       })
+       })*@
             @*@Html.ActionLink("Delete", "Delete", new { id=item.StudentID })*@
             <div class="form-group">
 

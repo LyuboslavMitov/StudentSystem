@@ -14,12 +14,12 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "PT Sans", sans-serif;
-  color: #83b0b9;
+  color: #4a5261;
   background-color: #d9edf7;
 }
 
 a {
-  color: #d35657;
+  color: #97ff21;
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@ Navigation
   right: -4px;
   height: 100%;
   width: 4px;
-  background-color: #83b0b9;
+  background-color: #343943;
   opacity: 0;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;

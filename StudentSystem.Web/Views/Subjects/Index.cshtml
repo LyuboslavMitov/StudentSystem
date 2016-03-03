@@ -3,31 +3,37 @@
 @{
     ViewBag.Title = "Index";
 }
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Предмети</h1>
+        </div>
+        <p><a class="btn btn-danger btn-block btn-lg" href="@Url.Action("Create", "Subjects")">Създаване на нов.</a></p>
+        <table class="table">
+            <tr>
+                <th class="text-center">
+                  @*  @Html.DisplayNameFor(model => model.SubjectName)*@
+                    Предмети
+                </th>
+                
+            </tr>
 
-<h2>Index</h2>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SubjectID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.SubjectID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SubjectID })
+                    </td>
+                </tr>
+            }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SubjectName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubjectName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubjectID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubjectID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubjectID })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+        </div>
+</body>

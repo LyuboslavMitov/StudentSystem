@@ -3,56 +3,62 @@
 @{
     ViewBag.Title = "Details";
 }
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Ученици</h1>
+        </div>
 
-<h2>Details</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
 
-<div>
-    <h4>StudentViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SecondName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SecondName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SecondName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Number)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Number)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Number)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Number)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.StudentClass)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentClass)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.StudentClass)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentClass)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</body>

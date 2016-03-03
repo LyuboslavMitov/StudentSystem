@@ -3,22 +3,55 @@
     <script src="~/Misc/HelpButton/js/modernizr.js"></script>
 
 <body>
-    <!-- Help Button panela-->
-    <div class="cd-panel from-right" style="position: relative; z-index:9999"> <!--Za da sum napulno siguren che vinagi shte e otgore-->
-        <header class="cd-panel-header"></header>
-        <div class="cd-panel-container">
-            <div class="cd-panel-content"> <!-- Osnovnoto sydyrjanie -->
-                <h1>Как се влиза във вашия бележник:<br><br>1. Избирате бутона "Бележник" от менюто за навигация.<br>2.&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;<br><button class="btn btn-sm cd-panel-close pull-left" contenteditable="false"></button>
-                </h1>
-
-                <h1>
-                     
-                </h1>
-
-
-            </div> 
+    <!-- Help Button panela spored tova dali e admin ili ne-->
+    @if (User.Identity.Name == "admin@mail.com")
+    {
+        <div class="cd-panel from-right" style="position: relative; z-index:9999">
+            <header class="cd-panel-header"></header>
+            <div class="cd-panel-container">
+                <div class="cd-panel-content">
+                    <button class="btn btn-sm btn-danger cd-panel-close pull-left" contenteditable="false"></button>
+                    <h1> Бутона <kbd>Класове</kbd> - позволява да въвеждате нови или да променяте съществуващи класове в системата.</h1>
+                    <br />
+                    <h1>Бутона <kbd>Предмети</kbd> - позволява да въвеждате нови или да променяте съществуващи предмети в системата.</h1>
+                    <br />
+                    <h1>Бутона <kbd>Учители</kbd> - позволява да разрешавате кой профил до какво има достъп.</h1>
+                    <br />
+                    <h1>Бутона <kbd>Ученици</kbd> - позволява да въвеждате нови или да променяте съществуващи ученици в системата.</h1>
+                    <br />
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="~/Misc/HelpButton/js/jquery-2.1.1.js"></script>
-    <script src="~/Misc/HelpButton/js/main.js"></script> 
-</body>
+    }
+    else
+    {
+
+        <div class="cd-panel from-right" style="position: relative; z-index:9999">
+            <!--Za da sum napulno siguren che vinagi shte e otgore-->
+            <header class="cd-panel-header"></header>
+            <div class="cd-panel-container">
+                <div class="cd-panel-content">
+                    <!-- Osnovnoto sydyrjanie -->
+                    <button class="btn btn-sm cd-panel-close pull-left" contenteditable="false"></button>
+                    <h1>
+                        1. Натиснете бутона <kbd>Бележник</kbd> от менюто вляво.
+                    </h1>
+                    <h1>
+                        2. Изберете клас и предмет и натиснете <kbd>Load</kbd>.
+                    </h1>
+                    <h1>
+                        3. Въведете желаната от вас оценка в полето вдясно и натиснете <kbd>Добави</kbd>.
+                    </h1>
+                    <h1>
+                        4. Повторете стъпките отново за всяка оценка, която искате да въведете.
+                    </h1>
+
+
+                </div>
+            </div>
+        </div>
+       
+                    }
+                    <script src="~/Misc/HelpButton/js/jquery-2.1.1.js"></script>
+                    <script src="~/Misc/HelpButton/js/main.js"></script>
+    </body>

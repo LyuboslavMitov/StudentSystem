@@ -1,24 +1,31 @@
 ﻿
 @{
     ViewBag.Title = "Бележник";
-        
+
     List<SelectListItem> currentTeacherClasses = (List<SelectListItem>)ViewBag.CurrentTeacherClasses;
     List<SelectListItem> currentTeacherSubjects = (List<SelectListItem>)ViewBag.CurrentTeacherSubjects;
 }
+@Styles.Render("~/Content/css")
 
-@using (Ajax.BeginForm("List", new AjaxOptions
-{
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "results",
-}))
-{
-@Html.AntiForgeryToken()
-@Html.DropDownList("selectedClassId", currentTeacherClasses)
-@Html.DropDownList("selectedSubjectId", currentTeacherSubjects)
-<input type="submit" value="Load" />
-}
-<div id="results">
-    Избери клас и предмет
-</div>
-
-
+@Html.Partial("_sidebar")
+@Html.Partial("_helpbutton")
+<body class="theme-invert">
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Избери клас и предмет.</h1>
+        </div>
+        @using (Ajax.BeginForm("List", new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "results",
+        }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.DropDownList("selectedClassId", currentTeacherClasses)
+            @Html.DropDownList("selectedSubjectId", currentTeacherSubjects)
+            <input type="submit" value="Load" />
+        }
+        <div id="results">     
+        </div>
+    </div>
+</body>
