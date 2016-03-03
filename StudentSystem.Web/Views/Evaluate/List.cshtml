@@ -79,7 +79,7 @@
                     @Html.HiddenFor(modelItem => item.StudentID, new { Name = "studentId" })
                     @Html.HiddenFor(modelItem => item.SubjectID, new { Name = "subjectId" })
                     @Html.EditorFor(modelItem => item.NewMark, null, "newMarkValue", new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(modelItem => item.NewMark, "", new { @class = "text-danger" })
+                    @Html.ValidationMessage("newMarkValue", new { @class = "text-danger" })
                     <input type="submit" value="Добави" class="btn btn-default" />
                 }
             </div>
@@ -88,3 +88,6 @@
 }
 
 </table>
+<script type="text/javascript" language=javascript>
+    $.validator.unobtrusive.parse(document);
+</script>

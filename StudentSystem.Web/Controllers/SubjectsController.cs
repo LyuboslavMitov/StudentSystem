@@ -65,10 +65,18 @@ namespace StudentSystem.Web.Controllers
             {
                 SubjectName = subjectViewModel.SubjectName
             };
-            this.data.Subjects.Add(newSubject);
-            this.data.SaveChanges();
+            if (this.data.Subjects.All().Any(s => s.SubjectName == newSubject.SubjectName))
+            {
+               return RedirectToAction("Index");
+            }
+            else
+            {
 
-            return RedirectToAction("Index");
+                this.data.Subjects.Add(newSubject);
+                this.data.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult Edit(int? id)
@@ -98,7 +106,7 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SubjectID,SubjectName")] SubjectViewModel subjectViewModel)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
             {
                 return View(subjectViewModel);
             }
@@ -110,10 +118,17 @@ namespace StudentSystem.Web.Controllers
                 return HttpNotFound();
             }
             subjectToUpdate.SubjectName = subjectViewModel.SubjectName;
-            this.data.Subjects.Update(subjectToUpdate);
-            this.data.SaveChanges();
+            if (this.data.Subjects.All().Any(s => s.SubjectName == subjectToUpdate.SubjectName))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                this.data.Subjects.Update(subjectToUpdate);
+                this.data.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
         }
 
         public ActionResult Delete(int? id)

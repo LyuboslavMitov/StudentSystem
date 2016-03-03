@@ -1,6 +1,7 @@
 ﻿using StudentSystem.DatabaseModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
@@ -12,8 +13,8 @@ namespace StudentSystem.Web.Models
     {
         public List<MarkViewModel> Marks { get; set; }
         public int SubjectID { get; set; }
-
-        
+        [Range(2, 6, ErrorMessage = "Между 2 - 6.")]
+        public int NewMark { get; set; }       
         public static Func<Student, int, EvaluateStudentViewModel> FromStudentModelWithMarks
         {
             get
@@ -36,6 +37,5 @@ namespace StudentSystem.Web.Models
                 };
             }
         }
-
     }
 }

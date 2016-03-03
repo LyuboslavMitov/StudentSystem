@@ -13,7 +13,7 @@ using StudentSystem.DatabaseModels;
 namespace StudentSystem.Web.Controllers
 {
     //Контролер, който позволява на админа да въвежда нови класове
-    public class StudentClassController : AdminController 
+    public class StudentClassController : AdminController
     {
         public ActionResult Index()
         {
@@ -23,7 +23,7 @@ namespace StudentSystem.Web.Controllers
 
         public ActionResult Details(int? id)
         {
-            
+
 
             if (id == null)
             {
@@ -54,7 +54,7 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentClassID,ClassName")] StudentClassViewModel studentClassViewModel)
         {
-            
+
 
             if (!ModelState.IsValid)
             {
@@ -66,16 +66,25 @@ namespace StudentSystem.Web.Controllers
 
                 ClassName = studentClassViewModel.ClassName
             };
-            this.data.StudentClasses.Add(newClass);
-            this.data.SaveChanges();
-
-            return RedirectToAction("Index");
+            ViewBag.Message = "";
+            if (this.data.StudentClasses.All().Any(c => c.ClassName == newClass.ClassName))
+            {
+                ViewBag.Message = "Класът, който се опитахте да въведете вече съществува!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                this.data.StudentClasses.Add(newClass);
+                this.data.SaveChanges();
+                ViewBag.Message = "Класът е създаден успешно!";
+                return RedirectToAction("Index");
+            }
         }
 
         // както на детайлите - зареждаме модела и го подаваме с View за редакция!
         public ActionResult Edit(int? id)
         {
-           
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -100,7 +109,7 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentClassID,ClassName")] StudentClassViewModel studentClassViewModel)
         {
-            
+
             if (!ModelState.IsValid)
             {
                 // не е наред, връщаме за да се попълни/коригира
@@ -113,19 +122,26 @@ namespace StudentSystem.Web.Controllers
             {
                 return HttpNotFound();
             }
-
+            //сменя името
             studentClassToUpdate.ClassName = studentClassViewModel.ClassName;
-            
-            this.data.StudentClasses.Update(studentClassToUpdate);
-            this.data.SaveChanges();
+            if (this.data.StudentClasses.All().Any(c => c.ClassName == studentClassToUpdate.ClassName))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
 
-            return RedirectToAction("Index");
+                this.data.StudentClasses.Update(studentClassToUpdate);
+                this.data.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
         }
 
         // взима ViewModel на класа за триене и го връща на юзъра за потвърждение
         public ActionResult Delete(int? id)
         {
-            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
