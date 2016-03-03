@@ -56,12 +56,12 @@ namespace StudentSystem.Web.Controllers
             return View();
         }
 
-     
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,FirstName,SecondName,LastName,Number,StudentClassID")] StudentViewModel studentViewModel)
         {
-            
+
 
             if (!ModelState.IsValid)
             {
@@ -69,34 +69,40 @@ namespace StudentSystem.Web.Controllers
                 return View(studentViewModel);
             }
             var studentClassToAssign = this.data.StudentClasses.Find(studentViewModel.StudentClassID);
-            if(studentClassToAssign ==null)
+            if (studentClassToAssign == null)
             {
                 return HttpNotFound("Student class not found");
             }
 
             Student newStudent = new Student()
             {
-                
+               
                 FirstName = studentViewModel.FirstName,
                 SecondName = studentViewModel.SecondName,
                 LastName = studentViewModel.LastName,
                 Number = studentViewModel.Number,
-                StudentClass=studentClassToAssign
+                StudentClass = studentClassToAssign
             };
-            //Проверка дали съществува ученик от такъв клас с този номер 
-            if (this.data.Students.All().Any(s => s.Number == newStudent.Number && s.StudentClass == newStudent.StudentClass))
+            int newStudentClassId = studentViewModel.StudentClassID;
+            //Проверка дали съществува ученик от такъв клас с този номер
+            if (this.data.Students.All().Select(s=>s.StudentClass.StudentClassID).Contains(newStudent.StudentClass.StudentClassID))
             {
-                //ако съществува препращаме към индекс, без да добавяме ученика в базата
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                this.data.Students.Add(newStudent);
-                this.data.SaveChanges();
+                if (this.data.Students.All().Any(s => s.Number == newStudent.Number))
+                {
 
+                    //ако съществува препращаме към индекс, без да добавяме ученика в базата
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    this.data.Students.Add(newStudent);
+                    this.data.SaveChanges();
                 // отиваме на индекса за учениците след успешно създаден ученик
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+
             }
+                return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int? id)
@@ -105,7 +111,7 @@ namespace StudentSystem.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var studentToEdit= this.data.Students.Find(id);
+            var studentToEdit = this.data.Students.Find(id);
             if (studentToEdit == null)
             {
                 return HttpNotFound();
@@ -135,17 +141,33 @@ namespace StudentSystem.Web.Controllers
             }
             var studentToEditClass = this.data.StudentClasses.Find(studentViewModel.StudentClassID);
             var studentToEdit = this.data.Students.Find(studentViewModel.StudentID);
-            if (studentToEdit==null)
+            if (studentToEdit == null)
             {
                 return HttpNotFound("Student Not Found !");
             }
+
             studentToEdit.FirstName = studentViewModel.FirstName;
             studentToEdit.SecondName = studentViewModel.SecondName;
             studentToEdit.LastName = studentViewModel.LastName;
             studentToEdit.Number = studentViewModel.Number;
             studentToEdit.StudentClass = studentToEditClass;
-            this.data.Students.Update(studentToEdit);
-            this.data.SaveChanges();
+            if (this.data.Students.All().Select(s => s.StudentClass.StudentClassID).Contains(studentToEdit.StudentClass.StudentClassID))
+            {
+                if (this.data.Students.All().Any(s => s.Number == studentToEdit.Number))
+                {
+
+                    //ако съществува препращаме към индекс, без да променяме ученика в базата
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    this.data.Students.Update(studentToEdit);
+                    this.data.SaveChanges();
+                    // отиваме на индекса за учениците след успешно променен ученик
+                    return RedirectToAction("Index");
+                }
+                
+            }
             return RedirectToAction("Index");
         }
 
@@ -167,10 +189,10 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-           
+
             return RedirectToAction("Index");
         }
 
-      
+
     }
 }

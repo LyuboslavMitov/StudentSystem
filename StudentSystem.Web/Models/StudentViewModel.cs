@@ -14,7 +14,7 @@ namespace StudentSystem.Web.Models
     
         [Key]
         public int StudentID { get; set; }
-
+        
         public string FirstName { get; set; }
 
         public string SecondName { get; set; }

@@ -223,9 +223,9 @@
     <Content Include="Misc\sidebar\partials\_mixins.scss" />
     <Content Include="Misc\sidebar\partials\_variables.scss" />
     <Content Include="Misc\sidebar\scss\style.scss" />
-    <Content Include="Views\Home\Welcome.cshtml" />
     <Content Include="Views\Evaluate\Index.cshtml" />
     <Content Include="Views\Evaluate\List.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
     <None Include="Views\Shared\ModalChoose.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />

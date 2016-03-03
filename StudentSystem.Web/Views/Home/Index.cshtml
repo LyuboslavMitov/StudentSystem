@@ -5,44 +5,35 @@
 <body>
     @Html.Partial("_sidebar")
     @Html.Partial("_helpbutton")
-    <div class="row">
-        @*<div class="panel col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="border-color: black; background-color: #8b8b8b; color: black">
-            <div class="container">
-                <div class="panel">
-                    <div class="panel-body">
-                         Site Title, your name, HELLO msg, etc.
-                        <h1 class="title">Добре дошли!</h1>
-                        <h2 class="subtitle">Free html5 template by GetTemplate</h2>
-
-                        <h3 class="tagline">.
-                        </h3>
-                        <h3 class="tagline">
-                            Potentially, the best place to tell people why they are here.<br>
-                            So, this is a demo page built to showcase the beauty of the template.
-                        </h3>
-                        <h3 class="tagline" >
-                            Potentially, the best place to tell people why they are here.<br>
-                            So, this is a demo page built to showcase the beauty of the template.
-                        </h3>
-                        <h3 class="tagline">
-                            Potentially, the best place to tell people why they are here.<br>
-                            So, this is a demo page built to showcase the beauty of the template.
-                        </h3>
-                    </div>
-                </div>*@
-    </div>
+   
+@if (User.Identity.Name != "admin@mail.com")
+       {
     <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
                 <div class="page-header">
             <h1>Добре дошли!</h1>
+
         </div>
+
         <p>Намирате се в сайта на нашия проект "Електронен учителски бележник".</p>
         <p>Целта ни е да улесним вашата работа, като ви предоставим възможността да замените своите книжни учителски бележници с електронен, леснодостъпен вариант.</p>
         <br />
         <p>В бутона <kbd>Помощ</kbd>, намиращ се на менюто вляво, може да получите подробни инструкции как да използвате нашето приложение.</p>
         <h1>Приятна работа!</h1>
     </div>
-    @*</div>*@
-    @*</div>*@
+}
+else
+{
+    <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
+        <div class="page-header">
+            <h1>Добре дошли!</h1>
+
+        </div>
+        <p>Намирате се в администраторския профил на нашето приложение</p>
+        <p>Целта на този профил е да осигури права за въвеждане и редактиране върху данните за ученици, учители, предмети и класове </p>
+        <p>В бутона <kbd>Помощ</kbd>, намиращ се на менюто вляво, може да получите подробни инструкции как да използвате тези функции.</p>
+
+        </div>
+        }
 </body>
 
 
