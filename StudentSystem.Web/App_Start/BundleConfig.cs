@@ -29,17 +29,20 @@ namespace StudentSystem.Web
                         "~/Content/bootstrap.min.css",
                       "~/Content/site.css"));
 
-            bundles.Add(new StyleBundle("~/sidebar/css").Include(
-                      "~/Partial_Components/sidebar/css/simple-sidebar.css"));
-
             bundles.Add(new StyleBundle("~/sidebar/jquery").Include(
                       "~/Scripts/bootstrap.min.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/jquery.js"));
 
+            bundles.Add(new StyleBundle("~/css/resetandstyle").Include(
+                     "~/Content/reset.css",
+                     "~/Content/style.css"));
 
-
-
+            bundles.Add(new ScriptBundle("~/sidebar2/js").Include(
+           "~/Scripts/modernizr.js",
+           "~/Scripts/jquery-2.1.4.js",
+           "~/Scripts/velocity.min.js",
+           "~/Scripts/main.js"));
 
         }
     }
