@@ -218,7 +218,6 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Views\Home\Insert.cshtml" />
     <Content Include="Misc\sidebar\partials\_layout.scss" />
     <Content Include="Misc\sidebar\partials\_mixins.scss" />
     <Content Include="Misc\sidebar\partials\_variables.scss" />
@@ -294,7 +293,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Notebook.cshtml" />
     <Content Include="Views\StudentClass\Create.cshtml" />
     <Content Include="Views\StudentClass\Delete.cshtml" />
     <Content Include="Views\StudentClass\Details.cshtml" />
