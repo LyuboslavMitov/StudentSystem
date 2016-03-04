@@ -1,4 +1,4 @@
-namespace StudentSystem.Data.Migrations
+п»їnamespace StudentSystem.Data.Migrations
 {
     using StudentSystem.DatabaseModels;
     using System;
@@ -16,15 +16,15 @@ namespace StudentSystem.Data.Migrations
             AutomaticMigrationsEnabled =true;
             AutomaticMigrationDataLossAllowed = true;
         }
-     /* При първоначално стартиране на системата се изпълнява първоначално запълване на базата с данни (т.нар seed),
-        включващo регистриране и профил на поне един администратор*/
+     /* РџСЂРё РїСЉСЂРІРѕРЅР°С‡Р°Р»РЅРѕ СЃС‚Р°СЂС‚РёСЂР°РЅРµ РЅР° СЃРёСЃС‚РµРјР°С‚Р° СЃРµ РёР·РїСЉР»РЅСЏРІР° РїСЉСЂРІРѕРЅР°С‡Р°Р»РЅРѕ Р·Р°РїСЉР»РІР°РЅРµ РЅР° Р±Р°Р·Р°С‚Р° СЃ РґР°РЅРЅРё (С‚.РЅР°СЂ seed),
+        РІРєР»СЋС‡РІР°С‰o СЂРµРіРёСЃС‚СЂРёСЂР°РЅРµ Рё РїСЂРѕС„РёР» РЅР° РїРѕРЅРµ РµРґРёРЅ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ*/
         protected override void Seed(StudentSystem.Data.ApplicationDbContext context)
         {
 
             if(!context.StudentClasses.Any(c=>c.ClassName == "11A"))
             {
 
-                var sub = new Subject { SubjectName = "Информатика" };
+                var sub = new Subject { SubjectName = "РРЅС„РѕСЂРјР°С‚РёРєР°" };
                 context.Subjects.Add(sub);
                 var cls = new StudentClass { ClassName = "11A" };
                 var cls2 = new StudentClass { ClassName = "10A" };
