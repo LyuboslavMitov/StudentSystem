@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 namespace StudentSystem.Web.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : BaseController
     {
         public ActionResult Index()
