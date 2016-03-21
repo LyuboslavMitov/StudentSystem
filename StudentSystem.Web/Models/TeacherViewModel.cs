@@ -1,6 +1,7 @@
 ﻿using StudentSystem.DatabaseModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -15,6 +16,7 @@ namespace StudentSystem.Web.Models
         [Key]
         [HiddenInput(DisplayValue = false)]
         public string UserID { get; set; }
+        [DisplayName("Име")]
         public string userName { get; set; }
 
         public static Expression<Func<ApplicationUser, TeacherViewModel>> FromApplicationUserModel

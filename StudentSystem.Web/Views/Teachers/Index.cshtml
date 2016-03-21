@@ -15,7 +15,7 @@
         <table class="table">
             <tr>
                 <th class="text-center">
-                   Registered Emails
+                   Регистрирани профили
                 </th>
                 <th></th>
             </tr>
@@ -27,8 +27,8 @@
                         @Html.DisplayFor(modelItem => item.userName)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
+                        @Html.ActionLink("Промени", "Edit", new { id = item.UserID }) |
+                        @Html.ActionLink("Детайли", "Details", new { id = item.UserID }) 
                         @* @Html.ActionLink("Delete", "Delete", new { id=item.UserID })*@
                     </td>
                 </tr>

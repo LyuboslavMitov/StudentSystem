@@ -1,6 +1,7 @@
 ﻿using StudentSystem.DatabaseModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,11 +14,17 @@ namespace StudentSystem.Web.Models
     {
     
         [Key]
+  
         public int StudentID { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
+        [DisplayName("Име")]
+        public string FirstName { get; set;}
+        [DisplayName("Презиме")]
+        public string SecondName {get; set; }
+        [DisplayName("Фамилия")]
         public string LastName { get; set; }
+        [DisplayName("Номер")]
         public int Number { get; set; }
+        [DisplayName("Клас")]
         public string StudentClass { get; set; }
         public int StudentClassID { get; set; }
 

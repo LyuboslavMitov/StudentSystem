@@ -1,6 +1,7 @@
 ﻿using StudentSystem.DatabaseModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,6 +14,7 @@ namespace StudentSystem.Web.Models
     {
         [Key]
         public int SubjectID { get; set; }
+        [DisplayName("Предмет")]
         public string SubjectName { get; set; }
         //Expression Funcion за по лесно превръщане от DataBase model -> ViewModel
         public static Expression<Func<Subject, SubjectViewModel>> FromSubjectModel            

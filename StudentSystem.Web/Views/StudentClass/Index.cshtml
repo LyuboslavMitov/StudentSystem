@@ -8,7 +8,7 @@
 <body class="theme-invert">
     <div class="jumbotron col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center" style="color: black">
         <div class="page-header">
-            <h1>Избери клас и предмет.</h1>
+            <h1>Класове</h1>
         </div>
         <p><a class="btn btn-danger btn-block btn-lg" href="@Url.Action("Create", "StudentClass")">Създаване на нов.</a></p>
 
@@ -27,9 +27,9 @@
                         @Html.DisplayFor(modelItem => item.ClassName)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.StudentClassID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.StudentClassID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.StudentClassID })
+                        @Html.ActionLink("Промени", "Edit", new { id = item.StudentClassID }) |
+                        @Html.ActionLink("Детайли", "Details", new { id = item.StudentClassID }) |
+                        @Html.ActionLink("Изтрий", "Delete", new { id = item.StudentClassID })
                     </td>
                 </tr>
             }
