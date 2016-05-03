@@ -17,12 +17,13 @@ namespace StudentSystem.Web.Controllers
             return View();
         }
 
-        public ActionResult Calendar()
+        public ActionResult Lqlq()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
+
 
         public ActionResult Help()
         {

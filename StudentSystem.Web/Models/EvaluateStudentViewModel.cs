@@ -1,6 +1,7 @@
 ﻿using StudentSystem.DatabaseModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +12,7 @@ namespace StudentSystem.Web.Models
     //ViewModel за оценяването на ученици
     public class EvaluateStudentViewModel : StudentViewModel
     {
+        [DisplayName("Оценки")]
         public List<MarkViewModel> Marks { get; set; }
         public int SubjectID { get; set; }
         [Range(2, 6, ErrorMessage = "Между 2 - 6.")]

@@ -22,7 +22,7 @@ namespace StudentSystem.Web.Models
         public string SecondName {get; set; }
         [DisplayName("Фамилия")]
         public string LastName { get; set; }
-        [DisplayName("Номер")]
+        [DisplayName("№")]
         public int Number { get; set; }
         [DisplayName("Клас")]
         public string StudentClass { get; set; }

@@ -1,10 +1,55 @@
+@font-face {
+	font-family: AG_Souvenir;
+	src: url('../../../../../../../Desktop/PLAN B/shrift/AG_Souvenir.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Brandon_light;
+	src: url('../../../../../../../Desktop/PLAN B/Brandon Free/Brandon_light.otf') format('opentype');
+}
+
 html {
-	background:#505D6E url(../images/12721844_1079269818791389_1856501200_n.jpg) no-repeat center center fixed; 
-	min-height:100%;
-	-webkit-background-size: cover;
-	   -moz-background-size: cover;
-	     -o-background-size: cover;
-	        background-size: cover;
+    background: no-repeat center center fixed;
+    min-height: 100%;
+    background-image: url('../images/bg04-2.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+
+.myButton {
+	text-align: center;
+		width: 100%;
+		font-size: 0.9em;
+		font-family: 'Open Sans', sans-serif;
+		padding: 8px 0px;
+		border: none;
+		outline: none;
+		color: #fff;
+		cursor: pointer;
+       background-color:#2dabf9;
+
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
 }
 
 body {
@@ -14,7 +59,7 @@ body {
 	-webkit-overflow-scrolling: touch;
 	line-height: 1.5em;
 	font-size:14px;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family:  ;
 	color:#fff;
 	color:rgba(255,255,255,.8); 
 	font-weight: normal;
