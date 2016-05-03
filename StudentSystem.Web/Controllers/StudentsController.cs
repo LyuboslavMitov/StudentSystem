@@ -56,19 +56,19 @@ namespace StudentSystem.Web.Controllers
             return View();
         }
 
-     
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StudentID,FirstName,SecondName,LastName,Number,StudentClassID")] StudentViewModel studentViewModel)
         {
-            
+
 
             if (!ModelState.IsValid)
             {
                 // ако нещо не е наред, връщаме за да се попълни/коригира
                 return View(studentViewModel);
             }
-            var studentClassToAssign = this.data.StudentClasses.Find(studentViewModel.StudentClassID);
+            StudentClass studentClassToAssign = this.data.StudentClasses.Find(studentViewModel.StudentClassID);
             if (studentClassToAssign == null)
             {
                 return HttpNotFound("Student class not found");
@@ -76,7 +76,7 @@ namespace StudentSystem.Web.Controllers
 
             Student newStudent = new Student()
             {
-                
+
                 FirstName = studentViewModel.FirstName,
                 SecondName = studentViewModel.SecondName,
                 LastName = studentViewModel.LastName,
@@ -85,25 +85,18 @@ namespace StudentSystem.Web.Controllers
             };
             int newStudentClassId = studentViewModel.StudentClassID;
             //Проверка дали съществува ученик от такъв клас с този номер
-            if (this.data.Students.All().Select(s=>s.StudentClass.StudentClassID).Contains(newStudent.StudentClass.StudentClassID))
+            if (studentClassToAssign.Students.Any(s => s.Number == newStudent.Number))
             {
-                if (this.data.Students.All().Any(s => s.Number == newStudent.Number))
-                {
-
-                    //ако съществува препращаме към индекс, без да добавяме ученика в базата
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                this.data.Students.Add(newStudent);
-                this.data.SaveChanges();
-                // отиваме на индекса за учениците след успешно създаден ученик
+                //ако съществува препращаме към индекс, без да добавяме ученика в базата
                 return RedirectToAction("Index");
-                }
+            }
 
+            this.data.Students.Add(newStudent);
+            this.data.SaveChanges();
+            // отиваме на индекса за учениците след успешно създаден ученик
+            return RedirectToAction("Index");
         }
-                return RedirectToAction("Index");
-        }
+         
 
         public ActionResult Edit(int? id)
         {
@@ -151,25 +144,22 @@ namespace StudentSystem.Web.Controllers
             studentToEdit.LastName = studentViewModel.LastName;
             studentToEdit.Number = studentViewModel.Number;
             studentToEdit.StudentClass = studentToEditClass;
-            if (this.data.Students.All().Select(s => s.StudentClass.StudentClassID).Contains(studentToEdit.StudentClass.StudentClassID))
-            {
-                if (this.data.Students.All().Any(s => s.Number == studentToEdit.Number))
-                {
 
-                    //ако съществува препращаме към индекс, без да променяме ученика в базата
-                    return RedirectToAction("Index");
-                }
-                else
-                {
+           if (studentToEditClass.Students.Any(s => s.Number == studentToEdit.Number))
+            {
+                //ако съществува препращаме към индекс, без да добавяме ученика в базата
+                return RedirectToAction("Index");
+            }
+
             this.data.Students.Update(studentToEdit);
             this.data.SaveChanges();
-                    // отиваме на индекса за учениците след успешно променен ученик
-                    return RedirectToAction("Index");
-                }
-                
-            }
+            // отиваме на индекса за учениците след успешно създаден ученик
             return RedirectToAction("Index");
         }
+
+
+       
+
 
         public ActionResult Delete(int? id)
         {
@@ -184,7 +174,6 @@ namespace StudentSystem.Web.Controllers
             }
             return View(studentViewModel);
         }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
