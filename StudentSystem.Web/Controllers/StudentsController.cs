@@ -96,7 +96,7 @@ namespace StudentSystem.Web.Controllers
             // отиваме на индекса за учениците след успешно създаден ученик
             return RedirectToAction("Index");
         }
-         
+
 
         public ActionResult Edit(int? id)
         {
@@ -145,20 +145,22 @@ namespace StudentSystem.Web.Controllers
             studentToEdit.Number = studentViewModel.Number;
             studentToEdit.StudentClass = studentToEditClass;
 
-           if (studentToEditClass.Students.Any(s => s.Number == studentToEdit.Number))
+            if (studentToEditClass.Students.Any(s => s.Number == studentToEdit.Number))
             {
                 //ако съществува препращаме към индекс, без да добавяме ученика в базата
                 return RedirectToAction("Index");
             }
-
-            this.data.Students.Update(studentToEdit);
-            this.data.SaveChanges();
-            // отиваме на индекса за учениците след успешно създаден ученик
-            return RedirectToAction("Index");
+            else
+            {
+                this.data.Students.Update(studentToEdit);
+                this.data.SaveChanges();
+                // отиваме на индекса за учениците след успешно създаден ученик
+                return RedirectToAction("Index");
+            }
         }
 
 
-       
+
 
 
         public ActionResult Delete(int? id)
@@ -178,10 +180,10 @@ namespace StudentSystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-           
+
             return RedirectToAction("Index");
         }
 
-      
+
     }
 }
