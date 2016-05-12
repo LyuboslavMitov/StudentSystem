@@ -145,7 +145,7 @@ namespace StudentSystem.Web.Controllers
             studentToEdit.Number = studentViewModel.Number;
             studentToEdit.StudentClass = studentToEditClass;
 
-            if (studentToEditClass.Students.Any(s => s.Number == studentToEdit.Number))
+            if (studentToEditClass.Students.Any(s => s.Number == studentToEdit.Number && s.StudentID != studentToEdit.StudentID))
             {
                 //ако съществува препращаме към индекс, без да добавяме ученика в базата
                 return RedirectToAction("Index");
