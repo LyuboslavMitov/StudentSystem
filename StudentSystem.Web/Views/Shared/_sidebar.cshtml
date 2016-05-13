@@ -8,7 +8,7 @@
     <!-- Admin -->
     @if (User.Identity.Name == "admin@mail.com") 
        {
-        <nav class="cd-side-navigation" style="position: fixed">
+        <nav class="cd-side-navigation hidden-xs" style="position: fixed">
                 <ul>
                     <li>
                         <a href="@Url.Action("Index", "Home")">
@@ -61,7 +61,7 @@
     else
     {
             <!-- Obiknoven user -->
-    <nav class="cd-side-navigation" > 
+    <nav class="cd-side-navigation hidden-xs" > 
         <ul>
             <li>
                 <a href="@Url.Action("Index", "Home")">

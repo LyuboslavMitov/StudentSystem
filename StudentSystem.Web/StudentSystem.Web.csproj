@@ -226,7 +226,6 @@
     <Content Include="Misc\testmest\images\contact.png" />
     <Content Include="Misc\testmest\images\into.png" />
     <Content Include="Misc\testmest\images\lock.png" />
-    <None Include="Views\Home\Lqlq.cshtml" />
     <Content Include="Misc\testmest\js\jquery.min.js" />
     <Content Include="Scripts\velocity.min.js" />
     <Content Include="Misc\Page\images\12721844_1079269818791389_1856501200_n.jpg" />
