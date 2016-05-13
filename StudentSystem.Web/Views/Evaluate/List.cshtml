@@ -96,6 +96,22 @@
                                     <input type="submit" value="Добави" class="btn btn-primary" />
                                 }
                             </div>
+                            <div class="form-group">
+                                @using (Ajax.BeginForm("DeleteLast", new AjaxOptions
+                                {
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = item.StudentID.ToString() + "_marks",
+                                    Confirm = "Сигурни ли сте?"
+                                }))
+                                {
+
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(modelItem => item.StudentID, new { Name = "studentId" })
+                                    @Html.HiddenFor(modelItem => item.SubjectID, new { Name = "subjectId" })
+                                   
+                                    <input type="submit" value="Изтрий" class="btn btn-primary" />
+                                }
+                            </div>
                         </td>
                     </tr>
 

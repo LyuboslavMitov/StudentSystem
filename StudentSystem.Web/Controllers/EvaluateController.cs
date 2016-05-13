@@ -90,5 +90,35 @@ namespace StudentSystem.Web.Controllers
             return Content(marks);
             
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteLast(int studentId, int subjectId)
+        {
+            Student student = this.data.Students.Find(studentId);
+            Subject subject = this.data.Subjects.Find(subjectId);
+            ApplicationUser currentUser = CurrentUser;
+            var markToDelete = this.data.Marks.All()
+                .Where(m => m.StudentID == studentId && m.SubjectID == subjectId)
+                .OrderByDescending(m => m.Created).FirstOrDefault();
+            if (markToDelete!=null)
+            {
+
+
+                if (CurrentUser.Id == markToDelete.Teacher.Id)
+                {
+                    this.data.Marks.Delete(markToDelete);
+                    this.data.SaveChanges();
+                }
+            }
+            
+            var newMarks = this.data.Marks.All()
+                .Where(m => m.StudentID == studentId && m.SubjectID == subjectId)
+                .Select(a => a.Grade.ToString()).ToArray();
+
+            string marks = String.Join(", ", newMarks);
+
+            return Content(marks);
+        }
     }
 }

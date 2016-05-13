@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem.Web.Models
 {
-    public class AdminStudentViewModel          //ПРОВЕРИ ДАЛИ Е НЕНУЖНО
+    public class AdminStudentViewModel          
     {
         [Key]
         
