@@ -13,7 +13,7 @@
         @Html.Display(Model.userName)<br />
     </fieldset>
     <fieldset>
-        <legend>Избор на предметите</legend>
+        <legend>Избор на класове</legend>
         @foreach (var studentClass in Model.StudentClasses)
         {
             <input type="checkbox" id="@studentClass.Value" name="selectedClasses" value="@studentClass.Value"
@@ -26,7 +26,7 @@
         
     </fieldset>
     <fieldset>
-        <legend>Избор на класовете</legend>
+        <legend>Избор на предмети</legend>
 
         @foreach (var subject in Model.Subjects)
         {
